@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+.controls > button {
+  cursor: pointer;
+}
+.controls > button:hover {
+  transform: scale(110%);
+  transition: transform ease 300;
+}
+.drag-handle > button {
+  text-align: center;
+}
+.drag-handle > button:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.card-links > div {
+  display: flex;
+  align-items: center;
+}
+.card-links a {
+  margin-left: 7px;
+}
+.taskbar > button {
+  height: 75%;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.taskbar button img {
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.4s ease-in-out;
+}
