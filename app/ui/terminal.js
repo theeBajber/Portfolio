@@ -22,7 +22,7 @@ export default function Terminal({ onClose, className }) {
     "date",
   ];
   const [history, setHistory] = useState([]);
-  const [input, setInput] = useState(" ");
+  const [input, setInput] = useState("");
   const [historyIndex, setHistoryIndex] = useState(null);
   const inputRef = useRef(null);
   function handleKey(e) {
