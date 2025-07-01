@@ -9,16 +9,24 @@ import Draggable from "./ui/draggable";
 import dynamic from "next/dynamic";
 import Contact from "./ui/contact";
 import Browser from "./ui/browser";
-import { FcOk } from "react-icons/fc";
+import Terminal from "./ui/terminal";
 
 export default function Home() {
   const [calcShown, setCalcShown] = useState(false);
   const [contactShown, setContactShown] = useState(false);
+  const [browsershown, setBrowserShown] = useState(false);
+  const [termShown, setTermShown] = useState(false);
   const toggleCalc = () => {
     setCalcShown(!calcShown);
   };
   const toggleContact = () => {
     setContactShown(!contactShown);
+  };
+  const toggleBrowser = () => {
+    setBrowserShown(!browsershown);
+  };
+  const toggleTerm = () => {
+    setTermShown(!termShown);
   };
 
   return (
@@ -27,24 +35,35 @@ export default function Home() {
       <Taskbar
         onCalcClick={toggleCalc}
         onContactClick={toggleContact}
+        onBrowserClick={toggleBrowser}
+        onTermClick={toggleTerm}
         className="w-[35%] h-16 fixed bottom-8 left-1/2 -translate-x-1/2"
       />
       <Player className="fixed top-10 left-3 w-[30%] h-40" />
-      <Draggable handleClass=".drag-handle">
+      <Draggable>
         <Calculator
           className={`w-[280px] h-[450px] ${calcShown ? "flex" : "hidden"}`}
           onClose={toggleCalc}
         />
       </Draggable>
       <Clock className={"fixed w-[320px] h-[280px] right-3 top-5 -z-1"} />
-      <Draggable handleClass=".drag-handle">
+      <Draggable>
         <Contact
           className={`h-45 w-80 ${contactShown ? "block" : "hidden"}`}
           onClose={toggleContact}
         />
       </Draggable>
-      <Draggable handleClass=".drag-handle">
-        <Browser className="" />
+      <Draggable>
+        <Browser
+          className={`${browsershown ? "block" : "hidden"} `}
+          onClose={toggleBrowser}
+        />
+      </Draggable>
+      <Draggable>
+        <Terminal
+          className={`${termShown ? "block" : "hidden"}`}
+          onClose={toggleTerm}
+        />
       </Draggable>
     </div>
   );

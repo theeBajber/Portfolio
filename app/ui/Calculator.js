@@ -103,7 +103,7 @@ export default function Calculator({ className, onClose }) {
     <div
       className={`rounded-lg p-2 border-2 flex-col justify-between border-gray-700 bg-white/10 backdrop-blur-xl ${salsa.className} ${className}`}
     >
-      <Header onClose={onClose} />
+      <Header onClose={onClose} className="" />
       <div className="flex flex-col items-end justify-center h-24 bg-black text-white rounded mb-2 p-2">
         <div className="text-sm text-gray-400">
           {firstOperand} {operation}

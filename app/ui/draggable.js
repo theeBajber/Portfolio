@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 export default function Draggable({
   children,
-  handleClass = "",
+  handleClass = ".drag-handle",
   className = "",
 }) {
   const wrapperRef = useRef(null);
