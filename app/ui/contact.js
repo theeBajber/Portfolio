@@ -1,43 +1,64 @@
-import { Phone } from "lucide-react";
+import { User } from "lucide-react";
 import Header from "./header";
+import { QRCodeSVG } from "qrcode.react";
+import { Github } from "lucide-react";
+import { Phone } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { Mail } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
-import { dosis } from "./fonts";
-import { CircleUser } from "lucide-react";
 
-export default function Contact({className, onClose}) {
-  return(
-    <div className={`bg-white/20 backdrop-blur-lg rounded-lg ${className}`}>
-      <Header onClose={onClose}/>
-      <div className="h-38 text-white flex">
-        <div className="h-9/10 aspect-square flex flex-col justify-center items-center border rounded-full">
-          <CircleUser className="h-12 w-12" />
-          <div className={`${dosis.className} leading-3 pt-2 w-full flex flex-col items-center`}>
-            <div className="font-bold">Faraj S. Ahmed</div>
-            <div className="font-semibold text-xs italic mt-1">Software Engineer</div>
+export default function Contact({ className, onClose }) {
+  return (
+    <div
+      className={`bg-white/20 backdrop-blur-lg rounded-lg flex flex-col ${className}`}
+    >
+      <Header onClose={onClose} className={``} />
+      <div className="h-1/4 w-full flex items-center justify-between border-b">
+        <div className="flex w-[52%] items-center justify-between">
+          <div className="w-14 flex items-center">
+            <div className="h-6 bg-black w-6 absolute left-0"></div>
+            <div className="rounded-full h-8 aspect-square bg-emerald-400 flex items-center justify-center z-3 absolute left-4">
+              <User className="h-6" />
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="text-sm">Faraj S.Ahmed</div>
+            <div className="text-xs text-gray-700">Software Engineer</div>
           </div>
         </div>
-        <div className="h-[90%] w-3/5 p-2 flex flex-col justify-evenly text-xs card-links">
-          <div>
-            <Phone className="h-4 w-4 text-amber-300" />
-            <Link href={""}>+254113199693</Link>
+        <div className="text-2xl font-extrabold mr-3">ن</div>
+      </div>
+      <div className="w-full h-[calc(75%-1.25rem)] rounded-b-lg flex items-center justify-between pl-6">
+        <QRCodeSVG value="faraj" size={45} bgColor="#ffffff00" />
+        <div className="h-[80%] rounded-l-lg w-[70%] bg-emerald-500 flex items-center">
+          <div className="h-[90%] w-[25%] flex flex-col justify-evenly items-center">
+            <div className="rounded-tr-lg text-emerald-600 rounded-bl-lg bg-black h-[18%] flex justify-center items-center">
+              <Phone className="h-[65%]" />
+            </div>
+            <div className="rounded-tr-lg text-emerald-600 rounded-bl-lg bg-black h-[18%] flex justify-center items-center">
+              <Mail className="h-[65%]" />
+            </div>
+            <div className="rounded-tr-lg text-emerald-600 rounded-bl-lg bg-black h-[18%] flex justify-center items-center">
+              <Github className="h-[65%]" />
+            </div>
+            <div className="rounded-tr-lg text-emerald-600 rounded-bl-lg bg-black h-[18%] flex justify-center items-center">
+              <Linkedin className="h-[65%]" />
+            </div>
           </div>
-          <div>
-            <Mail className="h-4 w-4 text-amber-300" />
-            <Link href={""}>ajrafSalim@gmail.com</Link>
-          </div>
-          <div>
-            <FaGithub className="h-4 w-4 text-amber-300" />
-            <Link href={""}>Al-Bajber</Link>
-          </div>
-          <div>
-            <FaLinkedin className="h-4 w-4 text-amber-300" />
-            <Link href={""}>Faraj Salim</Link>
+          <div className="h-[90%] text-black flex-col flex justify-evenly items-baseline text-sm">
+            <Link href="https://wa.me/254113199693?text=Hello%2C%20I%20found%20your%20number%20on%20your%20portfolio">
+              +254 113 199693
+            </Link>
+            <Link href={"mailto:ajrafsalim@gmail.com"}>
+              ajrafsalim@gmail.com
+            </Link>
+            <Link href={"https://github.com/Al-Bajber"}>Al-Bajber</Link>
+            <Link href={"https://www.linkedin.com/in/faraj-salim-784395373/"}>
+              Faraj Salim
+            </Link>
           </div>
         </div>
       </div>
-      <div></div>
     </div>
-  )
+  );
 }

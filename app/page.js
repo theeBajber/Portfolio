@@ -67,7 +67,7 @@ export default function Home() {
       <Clock className={"fixed w-[320px] h-[280px] right-3 top-5 -z-1"} />
       <Draggable>
         <Contact
-          className={`h-45 w-80 ${contactShown ? "block" : "hidden"}`}
+          className={`h-50 w-80 ${contactShown ? "block" : "hidden"}`}
           onClose={toggleContact}
         />
       </Draggable>
