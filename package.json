@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@heroicons/react": "^2.2.0",
     "lucide-react": "^0.515.0",
     "next": "15.3.3",

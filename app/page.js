@@ -8,14 +8,20 @@ import Taskbar from "./ui/Taskbar";
 import Draggable from "./ui/draggable";
 import dynamic from "next/dynamic";
 import Contact from "./ui/contact";
-import Browser from "./ui/browser";
 import Terminal from "./ui/terminal";
+import ToDo from "./ui/toDo";
+import Explorer from "./ui/explorer";
+import Shoofly from "./ui/browser";
+import Ayra from "./ui/ayra";
 
 export default function Home() {
   const [calcShown, setCalcShown] = useState(false);
   const [contactShown, setContactShown] = useState(false);
   const [browsershown, setBrowserShown] = useState(false);
   const [termShown, setTermShown] = useState(false);
+  const [todoShown, setTodoShown] = useState(false);
+  const [finderShown, setFinderShown] = useState(false);
+  const [ayraShown, setAyraShown] = useState(false);
   const toggleCalc = () => {
     setCalcShown(!calcShown);
   };
@@ -28,6 +34,15 @@ export default function Home() {
   const toggleTerm = () => {
     setTermShown(!termShown);
   };
+  const toggleToDo = () => {
+    setTodoShown(!todoShown);
+  };
+  const toggleFinder = () => {
+    setFinderShown(!finderShown);
+  };
+  const toggleAyra = () => {
+    setAyraShown(!ayraShown);
+  };
 
   return (
     <div className="min-h-screen">
@@ -37,6 +52,9 @@ export default function Home() {
         onContactClick={toggleContact}
         onBrowserClick={toggleBrowser}
         onTermClick={toggleTerm}
+        onTodoClick={toggleToDo}
+        onFinderClick={toggleFinder}
+        onAyraClick={toggleAyra}
         className="w-[35%] h-16 fixed bottom-8 left-1/2 -translate-x-1/2"
       />
       <Player className="fixed top-10 left-3 w-[30%] h-40" />
@@ -54,7 +72,7 @@ export default function Home() {
         />
       </Draggable>
       <Draggable>
-        <Browser
+        <Shoofly
           className={`${browsershown ? "block" : "hidden"} `}
           onClose={toggleBrowser}
         />
@@ -63,6 +81,24 @@ export default function Home() {
         <Terminal
           className={`${termShown ? "block" : "hidden"}`}
           onClose={toggleTerm}
+        />
+      </Draggable>
+      <Draggable>
+        <ToDo
+          className={`${todoShown ? "block" : "hidden"}`}
+          onClose={toggleToDo}
+        />
+      </Draggable>
+      <Draggable>
+        <Explorer
+          className={`${finderShown ? "block" : "hidden"}`}
+          onClose={toggleFinder}
+        />
+      </Draggable>
+      <Draggable>
+        <Ayra
+          className={`${ayraShown ? "flex" : "hidden"}`}
+          onClose={toggleAyra}
         />
       </Draggable>
     </div>

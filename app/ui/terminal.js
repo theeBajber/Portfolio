@@ -164,7 +164,7 @@ export default function Terminal({ onClose, className }) {
         <div className="text-sm flex items-center w-fit">
           <span className="mx-1 text-emerald-400">
             {cwd}
-            {">"}
+            <span className="text-blue-400 pb-1 ml-1">{"→"}</span>
           </span>
           <input
             ref={inputRef}

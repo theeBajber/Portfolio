@@ -14,7 +14,7 @@
   text-align: center;
 }
 .drag-handle > button:hover {
-  color: black;
+  color: white;
   cursor: pointer;
 }
 
@@ -28,7 +28,7 @@
 .taskbar > button {
   height: 75%;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 .taskbar button img {
   height: 100%;
@@ -47,3 +47,22 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+.todo-list > button {
+  padding: 3px 0;
+  cursor: pointer;
+}
+.todo-list > button input {
+  pointer-events: none;
+}
+.home > button {
+  text-align: left;
+  padding: 2px 0 2px 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 300;
+  height: 2rem;
+}
+/* .home > button span { */
+/*   color: ; */
+/* } */

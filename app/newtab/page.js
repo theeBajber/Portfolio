@@ -9,7 +9,7 @@ export default function Tab() {
       <Typwriter
         className={`text-2xl font-extrabold`}
         speed={75}
-        text="Weelcome to my browser!"
+        text="WWelcome to Shoofly"
       />
       <div>For security reasons, some links might not work.</div>
       <div className="flex items-center w-30 justify-evenly h-12">

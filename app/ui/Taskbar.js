@@ -6,6 +6,9 @@ export default function Taskbar({
   onContactClick,
   onBrowserClick,
   onTermClick,
+  onTodoClick,
+  onFinderClick,
+  onAyraClick,
 }) {
   useEffect(() => {
     const buttons = document.querySelectorAll(".taskbar > button");
@@ -37,25 +40,25 @@ export default function Taskbar({
       <button>
         <img src="/icons/Launchpad.png" />
       </button>
+      <button onClick={onFinderClick}>
+        <img src="/icons/Folder_Common.png" />
+      </button>
       <button onClick={onBrowserClick}>
         <img src="/icons/Safari.png" />
-      </button>
-      <button onClick={onTermClick}>
-        <img src="/icons/Terminal.png" />
-      </button>
-      <button>
-        <img src="/icons/Notes.png" />
-      </button>
-      <button onClick={onCalcClick}>
-        <img src="/icons/Calculator.png" />
-      </button>
-      <button>
-        <img src="/icons/Folder_Common.png" />
       </button>
       <button onClick={onContactClick}>
         <img src="/icons/Contacts.png" />
       </button>
-      <button>
+      <button onClick={onTermClick}>
+        <img src="/icons/Terminal.png" />
+      </button>
+      <button onClick={onCalcClick}>
+        <img src="/icons/Calculator.png" />
+      </button>
+      <button onClick={onTodoClick}>
+        <img src="/icons/Notes.png" />
+      </button>
+      <button onClick={onAyraClick}>
         <img src="/icons/messages.png" />
       </button>
     </div>

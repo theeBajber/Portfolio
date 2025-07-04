@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "./header";
 import { HomeIcon } from "@heroicons/react/24/solid";
 
-export default function Browser({ className, onClose }) {
+export default function Shoofly({ className, onClose }) {
   const [url, setUrl] = useState("");
   const [frameSource, setFrameSource] = useState("../newtab/");
   const handleKey = (e) => {
