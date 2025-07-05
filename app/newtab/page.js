@@ -14,10 +14,10 @@ export default function Tab() {
       <div>For security reasons, some links might not work.</div>
       <div className="flex items-center w-30 justify-evenly h-12">
         <Link href="">
-          <FcWikipedia className="h-8 rounded-lg bg-white/12 w-8 p-1.5" />
+          <LinkIcon className="h-8 rounded-lg bg-white/12 w-8 p-1.5" />
         </Link>
         <Link href="">
-          <LinkIcon className="h-8 rounded-lg bg-white/12 w-8 p-1.5" />
+          <FcWikipedia className="h-8 rounded-lg bg-white/12 w-8 p-1.5" />
         </Link>
         <Link href="">
           <LinkIcon className="h-8 rounded-lg bg-white/12 w-8 p-1.5" />

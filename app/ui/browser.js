@@ -8,6 +8,7 @@ export default function Shoofly({ className, onClose }) {
   const handleKey = (e) => {
     if (e.key == "Enter") {
       let input = url.trim();
+      if (!input) return;
       if (!input.startsWith("http")) {
         input = "https://" + input;
       }
