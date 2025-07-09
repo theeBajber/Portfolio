@@ -41,13 +41,16 @@ export default function Taskbar({
         <img src="/icons/Launchpad.png" />
       </button>
       <button onClick={onFinderClick}>
-        <img src="/icons/Folder_Common.png" />
+        <img src="/icons/Folder1.png" />
       </button>
       <button onClick={onBrowserClick}>
         <img src="/icons/Safari.png" />
       </button>
       <button onClick={onContactClick}>
         <img src="/icons/Contacts.png" />
+      </button>
+      <button>
+        <img src="/icons/Pics.png" />
       </button>
       <button onClick={onTermClick}>
         <img src="/icons/Terminal.png" />

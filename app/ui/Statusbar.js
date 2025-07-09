@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { urbanist } from "./fonts";
+import { amiri, urbanist } from "./fonts";
 import { useEffect, useState } from "react";
 import { Settings } from "lucide-react";
 
@@ -24,12 +24,11 @@ export default function StatusBar({ className }) {
       className={`bg-black/20 backdrop-blur-2xl flex items-center justify-between ${className}`}
     >
       <div className="flex justify-evenly items-center w-[15%] min-w-50 text-gray-300">
-        {/* <img src="/apple-logo-svgrepo-com.svg" alt="" className="h-3 w-auto" /> */}
-        <div className="font-extrabold">ن</div>
+        <div className={`${amiri.className} font-bold text-xl pt-0.5`}>ن</div>
         <div className={`${urbanist.className} font-bold text-white`}>
           Faraj Salim
         </div>
-        <Link href="" className="">
+        <Link href="/resume.doc" className="">
           Resume
         </Link>
       </div>

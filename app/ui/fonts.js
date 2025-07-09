@@ -1,4 +1,5 @@
 import {
+  Amiri,
   Dosis,
   Inter,
   Manrope,
@@ -13,3 +14,4 @@ export const urbanist = Urbanist({ subsets: ["latin"], weight: "400" });
 export const salsa = Salsa({ subsets: ["latin"], weight: "400" });
 export const dosis = Dosis({ subsets: ["latin"], weight: ["400", "800"] });
 export const patrick = Patrick_Hand({ subsets: ["latin"], weight: ["400"] });
+export const amiri = Amiri({ subsets: ["arabic"], weight: ["700"] });

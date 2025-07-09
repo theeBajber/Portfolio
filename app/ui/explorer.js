@@ -9,7 +9,7 @@ import { useState } from "react";
 const folderContents = {
   Desktop: [
     { name: "Projects", icon: "/icons/Folder1.png", type: "folder" },
-    { name: "Bin", icon: "/icons/Terminal.png" },
+    { name: "Bin", icon: "/icons/Bin.png" },
   ],
   "Desktop/Projects": [
     { name: "Ayra", icon: "/icons/Folder1.png", type: "folder" },

@@ -18,26 +18,11 @@ export default function LoginPage() {
           <p className="text-center px-8 mt-1 text-sm text-gray-100 sm:px-1 sm:text-base">
             Enter your personal details to access all features from this site
           </p>
-          <button
-            className="w-30 h-8 rounded-md m-3 hover:cursor-pointer border border-white"
-            type="button"
-          >
-            SIGN UP
-          </button>
         </div>
 
         {/* Right section */}
         <div className="mt-2 flex flex-col items-center justify-center sm:mr-8">
-          <h4 className="text-2xl my-2 font-bold">Create Account</h4>
-          <div className="flex content-center justify-evenly w-[9rem] flex-wrap gap-2">
-            <FcGoogle className="w-5 h-5" />
-            <FaGithub className="w-5 h-5" />
-            <FaLinkedinIn className="w-5 h-5 text-blue-800" />
-            <FaInstagram className="w-5 h-5 text-red-800" />
-          </div>
-          <p className="text-gray-700 text-sm dark:text-gray-400 mt-2">
-            Use email instead?
-          </p>
+          <h4 className="text-2xl my-2 font-bold uppercase">Sign In</h4>
           <form className="flex flex-col justify-center items-center">
             {/* Name */}
             <div className="w-60 relative my-2">
@@ -49,24 +34,9 @@ export default function LoginPage() {
               />
               <label
                 htmlFor="name"
-                className="absolute left-3 top-1.5 text-sm bg-white dark:bg-black peer-focus:-top-2 peer-focus:text-xs peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-gray-600 peer-focus:text-black dark:peer-focus:text-white w-10 text-center transition-all duration-150 ease-in-out"
+                className="absolute left-3 top-1.5 text-sm bg-white dark:bg-black peer-focus:-top-2 peer-focus:text-xs peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-gray-600 peer-focus:text-black dark:peer-focus:text-white w-16 text-center transition-all duration-150 ease-in-out"
               >
-                Name
-              </label>
-            </div>
-            {/* Email */}
-            <div className="w-60 relative my-2">
-              <input
-                type="email"
-                id="email"
-                placeholder=" "
-                className="w-60 h-9 p-2 border border-gray-300 rounded-lg peer"
-              />
-              <label
-                htmlFor="email"
-                className="absolute left-3 top-1.5 text-sm bg-white dark:bg-black peer-focus:-top-2 peer-focus:text-xs peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-gray-600 peer-focus:text-black dark:peer-focus:text-white w-10 text-center transition-all duration-150 ease-in-out"
-              >
-                Email
+                Username
               </label>
             </div>
             {/* Password + Arrow */}
@@ -91,9 +61,9 @@ export default function LoginPage() {
             {/* Submit button */}
             <button
               type="submit"
-              className="rounded-lg hidden w-28 bg-green-500 h-8 p-1 m-5 hover:bg-green-600 cursor-pointer md:block"
+              className="rounded-lg hidden w-28 bg-green-500 h-8 items-center justify-center m-5 hover:bg-green-600 cursor-pointer md:flex"
             >
-              SIGN UP
+              <ArrowRight className="w-[50%]" />
             </button>
           </form>
         </div>
