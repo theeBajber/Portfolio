@@ -32,6 +32,9 @@ importers:
       react-icons:
         specifier: ^5.5.0
         version: 5.5.0(react@19.1.0)
+      react-photo-album:
+        specifier: ^3.1.0
+        version: 3.1.0(react@19.1.0)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
@@ -535,6 +538,16 @@ packages:
     peerDependencies:
       react: '*'
 
+  react-photo-album@3.1.0:
+    resolution: {integrity: sha512-9PiWzwvckfefJRHY5E6kcNKoWNjyyFKhQ6Pl5nS1Z29QeP9h8zDOAoVQKWcv/AhZjRoduw1dybu9RNMj0+uPzQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@types/react': ^18 || ^19
+      react: ^18 || ^19
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
   react@19.1.0:
     resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
@@ -977,6 +990,10 @@ snapshots:
       scheduler: 0.26.0
 
   react-icons@5.5.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
+  react-photo-album@3.1.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 

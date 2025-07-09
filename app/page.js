@@ -13,6 +13,7 @@ import ToDo from "./ui/toDo";
 import Explorer from "./ui/explorer";
 import Shoofly from "./ui/browser";
 import Ayra from "./ui/ayra";
+import Pics from "./ui/pics";
 
 export default function Home() {
   const [calcShown, setCalcShown] = useState(false);
@@ -22,6 +23,7 @@ export default function Home() {
   const [todoShown, setTodoShown] = useState(false);
   const [finderShown, setFinderShown] = useState(false);
   const [ayraShown, setAyraShown] = useState(false);
+  const [picsShown, setPicsShown] = useState(false);
   const toggleCalc = () => {
     setCalcShown(!calcShown);
   };
@@ -43,6 +45,9 @@ export default function Home() {
   const toggleAyra = () => {
     setAyraShown(!ayraShown);
   };
+  const togglePics = () => {
+    setPicsShown(!picsShown);
+  };
 
   return (
     <div className="min-h-screen">
@@ -55,6 +60,7 @@ export default function Home() {
         onTodoClick={toggleToDo}
         onFinderClick={toggleFinder}
         onAyraClick={toggleAyra}
+        onPicsClick={togglePics}
         className="w-[35%] h-16 fixed bottom-8 left-1/2 -translate-x-1/2"
       />
       <Player className="fixed top-10 left-3 w-[30%] h-40" />
@@ -99,6 +105,12 @@ export default function Home() {
         <Ayra
           className={`${ayraShown ? "flex" : "hidden"}`}
           onClose={toggleAyra}
+        />
+      </Draggable>
+      <Draggable>
+        <Pics
+          className={`${picsShown ? "block" : "hidden"}`}
+          onClose={togglePics}
         />
       </Draggable>
     </div>

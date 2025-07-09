@@ -9,6 +9,7 @@ export default function Taskbar({
   onTodoClick,
   onFinderClick,
   onAyraClick,
+  onPicsClick,
 }) {
   useEffect(() => {
     const buttons = document.querySelectorAll(".taskbar > button");
@@ -49,7 +50,7 @@ export default function Taskbar({
       <button onClick={onContactClick}>
         <img src="/icons/Contacts.png" />
       </button>
-      <button>
+      <button onClick={onPicsClick}>
         <img src="/icons/Pics.png" />
       </button>
       <button onClick={onTermClick}>
