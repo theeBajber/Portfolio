@@ -14,6 +14,7 @@ import Explorer from "./ui/explorer";
 import Shoofly from "./ui/browser";
 import Ayra from "./ui/ayra";
 import Pics from "./ui/pics";
+import { Launcher } from "./ui/launcher";
 
 export default function Home() {
   const [calcShown, setCalcShown] = useState(false);
@@ -24,6 +25,7 @@ export default function Home() {
   const [finderShown, setFinderShown] = useState(false);
   const [ayraShown, setAyraShown] = useState(false);
   const [picsShown, setPicsShown] = useState(false);
+  const [launcherShown, setLauncherShown] = useState(false);
   const toggleCalc = () => {
     setCalcShown(!calcShown);
   };
@@ -48,6 +50,49 @@ export default function Home() {
   const togglePics = () => {
     setPicsShown(!picsShown);
   };
+  const toggleLauncher = () => {
+    setLauncherShown(!launcherShown);
+  };
+  const handleLaunchApp = (appName) => {
+    switch (appName) {
+      case "calculator":
+        setCalcShown(true);
+        break;
+      case "ayra":
+        setAyraShown(true);
+        break;
+      case "terminal":
+        setTermShown(true);
+        break;
+      case "pics":
+        setPicsShown(true);
+        break;
+      case "shoofly":
+        setBrowserShown(true);
+        break;
+      case "contact":
+        setContactShown(true);
+        break;
+      case "files":
+        setFinderShown(true);
+        break;
+      case "todo":
+        setTodoShown(true);
+        break;
+      case "calendar":
+        alert("App still under development");
+        break;
+      case "player":
+        alert("Player is shown as a widget on Desktop");
+        break;
+      case "clock":
+        alert("Clock is shown as a widget on Desktop");
+        break;
+
+      default:
+        break;
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -61,6 +106,7 @@ export default function Home() {
         onFinderClick={toggleFinder}
         onAyraClick={toggleAyra}
         onPicsClick={togglePics}
+        onLauncherClick={toggleLauncher}
         className="w-[35%] h-16 fixed bottom-8 left-1/2 -translate-x-1/2"
       />
       <Player className="fixed top-10 left-3 w-[30%] h-40" />
@@ -113,6 +159,11 @@ export default function Home() {
           onClose={togglePics}
         />
       </Draggable>
+      <Launcher
+        className={`${launcherShown ? "flex" : "hidden"}`}
+        onClose={toggleLauncher}
+        onLaunchApp={handleLaunchApp}
+      />
     </div>
   );
 }

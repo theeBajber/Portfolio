@@ -228,6 +228,7 @@ export default function Player({ className }) {
         onLoadedMetadata={() => {
           setDuration(audioRef.current.duration);
         }}
+        title={currentTrack.title}
       />
     </div>
   );

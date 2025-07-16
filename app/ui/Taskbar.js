@@ -10,6 +10,7 @@ export default function Taskbar({
   onFinderClick,
   onAyraClick,
   onPicsClick,
+  onLauncherClick,
 }) {
   useEffect(() => {
     const buttons = document.querySelectorAll(".taskbar > button");
@@ -36,9 +37,9 @@ export default function Taskbar({
   }, []);
   return (
     <div
-      className={`backdrop-blur-2xl rounded-3xl bg-white/20 flex justify-evenly items-center px-2 ${className} min-w-87 taskbar`}
+      className={`backdrop-blur-2xl rounded-3xl bg-white/20 flex justify-evenly items-center px-2 ${className} min-w-90 taskbar`}
     >
-      <button>
+      <button onClick={onLauncherClick}>
         <img src="/icons/Launchpad.png" />
       </button>
       <button onClick={onFinderClick}>
