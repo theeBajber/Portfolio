@@ -2,10 +2,12 @@ import { FcWikipedia } from "react-icons/fc";
 import Typwriter from "../ui/typwriter";
 import { LinkIcon } from "lucide-react";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Tab() {
   return (
     <div className="w-sm h-70 flex flex-col justify-center items-center">
+      <Analytics />
       <Typwriter
         className={`text-2xl font-extrabold`}
         speed={75}

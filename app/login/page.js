@@ -1,14 +1,13 @@
 // app/login/page.js
 "use client";
 
-import Image from "next/image";
-import { FcGoogle } from "react-icons/fc"; // Flat Color icon (Google logo)
-import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa"; // Flat Color icon (Google logo)
+import { Analytics } from "@vercel/analytics/next";
 import { ArrowRight } from "lucide-react";
 
 export default function LoginPage() {
   return (
     <div className="flex items-center justify-center">
+      <Analytics />
       <div className="flex flex-col rounded-3xl h-[30rem] w-[18rem] bg-white dark:bg-black dark:text-white sm:mt-0 sm:flex-row sm:w-[42rem] sm:items-center sm:justify-between">
         {/* Left section */}
         <div className="bg-green-500 h-[11rem] w-[18rem] rounded-3xl flex justify-center items-center flex-col text-white sm:h-full sm:w-[22rem] sm:rounded-r-[95px]">
