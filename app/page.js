@@ -15,6 +15,7 @@ import Shoofly from "./ui/browser";
 import Ayra from "./ui/ayra";
 import Pics from "./ui/pics";
 import { Launcher } from "./ui/launcher";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   const [calcShown, setCalcShown] = useState(false);
@@ -96,6 +97,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <Analytics />
       <StatusBar className="w-full fixed top-0 left-0 h-6" />
       <Taskbar
         onCalcClick={toggleCalc}
