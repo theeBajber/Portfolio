@@ -10,6 +10,7 @@ const folderContents = {
   Desktop: [
     { name: "Projects", icon: "/icons/Folder1.png", type: "folder" },
     { name: "Bin", icon: "/icons/Bin.png" },
+    { name: "Skills.doc", icon: "/icons/Terminal.png" },
   ],
   "Desktop/Projects": [
     { name: "Ayra", icon: "/icons/Folder1.png", type: "folder" },

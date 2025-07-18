@@ -89,7 +89,6 @@ export default function Home() {
       case "clock":
         alert("Clock is shown as a widget on Desktop");
         break;
-
       default:
         break;
     }
