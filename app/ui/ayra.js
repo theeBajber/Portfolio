@@ -59,7 +59,6 @@ export default function Ayra({ className, onClose }) {
       />
       <Header onClose={onClose} />
 
-      {/* Chat area */}
       <div
         ref={scrollRef}
         className="w-full h-[calc(100%-4rem)] py-3 overflow-y-auto"
