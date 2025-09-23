@@ -30,7 +30,7 @@ export const Launcher = ({ onLaunchApp, onClose, className }) => {
       route: "/login",
     },
     { name: "Clock", icon: Clock, color: "text-indigo-400" },
-    { name: "Calendar", icon: Calendar, color: "text-red-400" },
+    { name: "Tic-Tac-Toe", icon: Calendar, color: "text-red-400" },
     { name: "Player", icon: Music, color: "text-emerald-400" },
   ];
   const [searchTerm, setSearchTerm] = useState("");
@@ -54,33 +54,33 @@ export const Launcher = ({ onLaunchApp, onClose, className }) => {
 
   return (
     <div
-      className={`fixed inset-0 bg-black/70 backdrop-blur-xl z-50 flex items-center justify-center ${className}`}
+      className={`fixed inset-0 bg-black/70 backdrop-blur-xl z-1000 flex items-center justify-center ${className}`}
     >
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute top-8 right-8 h-10 w-10 p-0 text-white hover:bg-white/20 rounded-xl flex items-center justify-center"
+        className="absolute top-8 right-4 sm:right-8 h-10 w-10 p-0 text-white hover:bg-white/20 rounded-xl flex items-center justify-center"
       >
         <X className="h-6 w-6" />
       </button>
 
-      <div className="w-full max-w-4xl mx-auto px-8">
+      <div className="w-full max-w-4xl mx-auto px-4 sm:px-8">
         {/* Search bar */}
         <div className="mb-8 flex justify-center">
-          <div className="relative w-96">
+          <div className="relative w-[72%] max-w-96">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/70 pointer-events-none" />
             <input
               type="text"
               placeholder="Search applications..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 h-12 bg-white/10 border border-white/20 text-white placeholder:text-white/70 text-lg backdrop-blur-sm rounded-xl outline-none focus:ring-2 focus:ring-white/30 transition"
+              className="w-full pl-12 h-12 bg-white/10 border border-white/20 text-white placeholder:text-white/70 sm:text-lg backdrop-blur-sm rounded-xl outline-none focus:ring-2 focus:ring-white/30 transition"
             />
           </div>
         </div>
 
         {/* Apps Grid */}
-        <div className="grid grid-cols-6 gap-8 justify-items-center max-w-3xl mx-auto">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 justify-items-center max-w-md sm:max-w-xl sm:gap-x-1 md:max-w-3xl mx-auto">
           {filteredApps.map((app) => (
             <div
               key={app.name}
@@ -96,7 +96,7 @@ export const Launcher = ({ onLaunchApp, onClose, className }) => {
                   <app.icon className="h-8 w-8" />
                 )}
               </div>
-              <span className="text-white text-sm font-medium group-hover:text-white/80 transition-colors">
+              <span className="text-white text-sm truncate font-medium group-hover:text-white/80 transition-colors">
                 {app.name}
               </span>
             </div>

@@ -37,7 +37,7 @@ export default function Taskbar({
   }, []);
   return (
     <div
-      className={`backdrop-blur-2xl rounded-3xl bg-white/20 flex justify-evenly items-center px-2 ${className} min-w-90 taskbar`}
+      className={`backdrop-blur-2xl rounded-3xl bg-white/20 flex justify-evenly items-center px-2 ${className} max-w-[420px] sm:min-w-90 w-[95%] aspect-[450/64] z-999 taskbar`}
     >
       <button onClick={onLauncherClick}>
         <img src="/icons/Launchpad.png" />

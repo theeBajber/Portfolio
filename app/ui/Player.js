@@ -161,7 +161,7 @@ export default function Player({ className }) {
 
   return (
     <div
-      className={`text-white bg-white/10 backdrop-blur-xl rounded-xl flex flex-col items-center justify-evenly ${className}`}
+      className={`text-white bg-white/10 backdrop-blur-xl rounded-xl flex flex-col items-center justify-evenly sm:min-w-[300px] ${className}`}
     >
       <div className="w-full flex items-center pl-3">
         <Image
@@ -191,7 +191,7 @@ export default function Player({ className }) {
         <span>{currentTime}</span>
         <span>{duration}</span>
       </div>
-      <div className="h-fit  flex items-center justify-evenly w-[80%] controls">
+      <div className="h-fit flex items-center justify-evenly w-full sm:w-[80%] controls">
         <button onClick={toggleLoop}>
           {isLoop ? (
             <Repeat1 className="w-6 h-6" />

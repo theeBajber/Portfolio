@@ -14,9 +14,18 @@ export default function StatusBar({ className }) {
     month: "short",
     day: "numeric",
   });
+  const shortDate = now.toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
   const time = now.toLocaleString("en-US", {
     hour: "numeric",
     minute: "2-digit",
+  });
+  const shortTime = now.toLocaleString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
   });
 
   return (
@@ -32,14 +41,19 @@ export default function StatusBar({ className }) {
           Resume
         </Link>
       </div>
-      <div className="flex w-2xs justify-between pr-2 text-gray-200 text-sm">
-        <img src="/wifi.svg" alt="" />
-        <Link className="flex justify-center items-center" href="/login">
+      <div className="flex sm:w-2xs justify-between gap-2 sm:gap-0 pr-2 text-gray-200 text-sm">
+        <img className="hidden sm:block" src="/wifi.svg" alt="" />
+        <Link
+          className="justify-center items-center hidden sm:flex"
+          href="/login"
+        >
           <Settings className="h-4" />
         </Link>
-        <img src="/search.svg" alt="" />
-        <div>{date}</div>
-        <div>{time}</div>
+        <img className="hidden sm:block" src="/search.svg" alt="" />
+        <div className="min-w-[106px] hidden sm:block">{date}</div>
+        <div className="sm:hidden">{shortDate}</div>
+        <div className="hidden sm:block">{time}</div>
+        <div className="sm:hidden">{shortTime}</div>
       </div>
     </div>
   );

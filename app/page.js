@@ -16,6 +16,8 @@ import Ayra from "./ui/ayra";
 import Pics from "./ui/pics";
 import { Launcher } from "./ui/launcher";
 import { Analytics } from "@vercel/analytics/next";
+import TicTacToe from "./ui/tic-tac-toe";
+import Overlay from "./ui/overlay";
 
 export default function Home() {
   const [calcShown, setCalcShown] = useState(false);
@@ -25,8 +27,10 @@ export default function Home() {
   const [todoShown, setTodoShown] = useState(false);
   const [finderShown, setFinderShown] = useState(false);
   const [ayraShown, setAyraShown] = useState(false);
+  const [ticTacToeShown, setTicTacToeShown] = useState(false);
   const [picsShown, setPicsShown] = useState(false);
   const [launcherShown, setLauncherShown] = useState(false);
+  const [overlayShown, setOverlayShown] = useState(true);
   const toggleCalc = () => {
     setCalcShown(!calcShown);
   };
@@ -54,6 +58,12 @@ export default function Home() {
   const toggleLauncher = () => {
     setLauncherShown(!launcherShown);
   };
+  const toggleTicTacToe = () => {
+    setTicTacToeShown(!ticTacToeShown);
+  };
+  const toggleOverlay = () => {
+    setOverlayShown(!overlayShown);
+  };
   const handleLaunchApp = (appName) => {
     switch (appName) {
       case "calculator":
@@ -80,8 +90,8 @@ export default function Home() {
       case "todo":
         setTodoShown(true);
         break;
-      case "calendar":
-        alert("App still under development");
+      case "tic-tac-toe":
+        setTicTacToeShown(true);
         break;
       case "player":
         alert("Player is shown as a widget on Desktop");
@@ -96,6 +106,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <Overlay
+        className={`${overlayShown ? "sm:hidden" : "hidden"}`}
+        onClose={toggleOverlay}
+      />
       <Analytics />
       <StatusBar className="w-full fixed top-0 left-0 h-6" />
       <Taskbar
@@ -108,16 +122,20 @@ export default function Home() {
         onAyraClick={toggleAyra}
         onPicsClick={togglePics}
         onLauncherClick={toggleLauncher}
-        className="w-[35%] h-16 fixed bottom-8 left-1/2 -translate-x-1/2"
+        className="sm:w-[35%] fixed bottom-8 left-1/2 -translate-x-1/2"
       />
-      <Player className="fixed top-10 left-3 w-[30%] h-40" />
+      <Player className="fixed top-10 sm:left-3 sm:translate-x-0 -translate-x-1/2 left-1/2 w-[85%] sm:w-1/3 h-40" />
       <Draggable>
         <Calculator
           className={`w-[280px] h-[450px] ${calcShown ? "flex" : "hidden"}`}
           onClose={toggleCalc}
         />
       </Draggable>
-      <Clock className={"fixed w-[320px] h-[280px] right-3 top-5 -z-1"} />
+      <Clock
+        className={
+          "fixed w-[320px] h-[280px] right-3 top-5 -z-1 hidden sm:block"
+        }
+      />
       <Draggable>
         <Contact
           className={`h-50 w-80 ${contactShown ? "block" : "hidden"}`}
@@ -158,6 +176,12 @@ export default function Home() {
         <Pics
           className={`${picsShown ? "block" : "hidden"}`}
           onClose={togglePics}
+        />
+      </Draggable>
+      <Draggable>
+        <TicTacToe
+          className={`${ticTacToeShown ? "block" : "hidden"}`}
+          onClose={toggleTicTacToe}
         />
       </Draggable>
       <Launcher

@@ -35,9 +35,15 @@ export default function Explorer({ className, onClose }) {
     >
       <Header className="z-2 relative" onClose={onClose} />
       {/*Aside*/}
-      <div className="h-full w-2/7 absolute top-0 left-0 rounded-l-lg bg-white/20 pt-6">
+      <div className="h-full w-2/7 absolute top-0 left-0 rounded-l-lg bg-white/20 pt-3">
         <div className="flex flex-col home text-sm">
-          <h4 className="text-gray-700 text-xs pl-1">Home</h4>
+          <div className="flex flex-col border-b-gray-400 border-b  w-full">
+            <div className="flex items-center">
+              <img src="/icons/Folder1.png" className="h-5" />
+              <h4 className="text-gray-700 text-xs pl-1">Files</h4>
+            </div>
+            <input className="rounded-lg border" />
+          </div>
           <button
             className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Desktop" ? "bg-sky-300/30" : ""} `}
             onClick={() => setActiveFolder("Desktop")}

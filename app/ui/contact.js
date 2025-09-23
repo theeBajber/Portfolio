@@ -6,6 +6,7 @@ import { Phone } from "lucide-react";
 import { Linkedin } from "lucide-react";
 import { Mail } from "lucide-react";
 import Link from "next/link";
+import { amiri } from "./fonts";
 
 export default function Contact({ className, onClose }) {
   return (
@@ -26,7 +27,9 @@ export default function Contact({ className, onClose }) {
             <div className="text-xs text-gray-700">Software Engineer</div>
           </div>
         </div>
-        <div className="text-2xl font-extrabold mr-3">ن</div>
+        <div className={`text-2xl font-extrabold mr-3 ${amiri.className}`}>
+          ن
+        </div>
       </div>
       <div className="w-full h-[calc(75%-1.25rem)] rounded-b-lg flex items-center justify-between pl-6">
         <QRCodeSVG value="faraj" size={45} bgColor="#ffffff00" />
