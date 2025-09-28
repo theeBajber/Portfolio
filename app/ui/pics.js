@@ -5,14 +5,14 @@ import { Search, Grid3X3, List, Heart, Eye, X } from "lucide-react";
 import Header from "./header";
 
 const images = [
-  "/photos/pic1.jpeg",
-  "/photos/pic2.jpeg",
-  "/photos/pic3.jpeg",
-  "/photos/pic7.jpeg",
-  "/photos/pic5.jpeg",
+  "/photos/Faraj.jpeg",
+  "/photos/Faraj4.jpeg",
   "/photos/pic8.jpeg",
-  "/photos/pic9.jpeg",
-  "/photos/pic10.jpeg",
+  "/photos/Faraj2.jpeg",
+  "/photos/pic5.jpeg",
+  "/photos/Nvim.png",
+  "/photos/Faraj3.jpeg",
+  "/photos/Faraj5.jpeg",
 ];
 
 const viewModes = ["masonry", "grid", "list"];
@@ -35,7 +35,7 @@ export default function Pics({ onClose, className }) {
 
   return (
     <div
-      className={`flex flex-col w-[600px] h-[420px] bg-white/10 backdrop-blur-md rounded-lg overflow-hidden border border-white/30 ${className}`}
+      className={`flex flex-col w-full sm:w-[600px] h-[420px] bg-white/10 backdrop-blur-md rounded-lg overflow-hidden border border-white/30 ${className}`}
     >
       {/* Header Bar */}
       <Header onClose={onClose} className={``} />
@@ -101,7 +101,7 @@ export default function Pics({ onClose, className }) {
             ))}
           </div>
         ) : viewMode === "masonry" ? (
-          <div className="columns-3 gap-3 [column-fill:balance]">
+          <div className="columns-2 sm:columns-2 gap-3 [column-fill:balance]">
             {filtered.map((img) => (
               <div
                 key={img}
@@ -130,7 +130,7 @@ export default function Pics({ onClose, className }) {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
             {filtered.map((img) => (
               <div
                 key={img}

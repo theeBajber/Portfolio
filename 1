@@ -16,16 +16,7 @@ const folderContents = {
   Desktop: [
     { name: "Projects", icon: "/icons/Folder1.png", type: "folder" },
     { name: "Bin", icon: "/icons/Bin.png", type: "folder" },
-    {
-      name: "Skills.txt",
-      type: "file",
-      content: `- <strong>Programming:</strong> Python, JavaScript, Kotlin, Java, C <br>
-- <strong>Web Development:</strong> React, Next.js, Node.js, Express, Tailwind <br>
-- <strong>Databases:</strong> MySQL, MongoDB, PostgreSQL <br>
-- <strong>Tools & Platforms:</strong> Git, GitHub, Linux (Arch Btw), Neovim
-`,
-      icon: "/icons/IOCN.png",
-    },
+    { name: "Skills.doc", icon: "/icons/Terminal.png" },
   ],
   "Desktop/Projects": [
     { name: "Ayra", icon: "/icons/Folder1.png", type: "folder" },
@@ -42,7 +33,7 @@ const folderContents = {
       type: "file",
       icon: "/icons/IOCN.png",
       content:
-        "AYRA — A portfolio-integrated AI assistant that answers queries to simulate a desktop-like assistant experience, developed using Next.js and gemini api.",
+        "Ayra is an AI app with its own GUI, built for Noon OS to simulate a desktop-like assistant experience.",
     },
     {
       name: "Github.link",
@@ -64,7 +55,7 @@ const folderContents = {
       type: "file",
       icon: "/icons/IOCN.png",
       content:
-        "ScreenWorld — A sleek landing page designed to promote a digital marketing agency, built using vanilla JS and CSS.",
+        "Screenworld is a modern portfolio website showcasing creativity, built with Next.js, Tailwind CSS, and Framer Motion.",
     },
     {
       name: "Github.link",
@@ -92,13 +83,13 @@ const folderContents = {
       name: "Github.link",
       type: "link",
       icon: "/icons/github.png",
-      url: "https://github.com/theeBajber/plp-hackathon-portfolio",
+      url: "https://github.com/theeBajber/hackathon-portfolio",
     },
     {
       name: "Live.link",
       type: "link",
       icon: "/icons/Safari.png",
-      url: "https://knf-portfolio.vercel.app/",
+      url: "https://noon-os.vercel.app/",
     },
     { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
   ],
@@ -108,13 +99,13 @@ const folderContents = {
       type: "file",
       icon: "/icons/IOCN.png",
       content:
-        "WeemWeb is a lightweight website offering technical solutions to non-profits and organizations. Includes application forms, validation, and newsletter integrations. Used: Bootstrap and vanilla JS",
+        "WeemWeb is a lightweight static website builder for non-profits and organizations. Includes application forms, validation, and newsletter integrations.",
     },
     {
       name: "Github.link",
       type: "link",
       icon: "/icons/github.png",
-      url: "https://github.com/istwahir/weemweb",
+      url: "https://github.com/theeBajber/weemweb",
     },
     {
       name: "Live.link",
@@ -130,19 +121,19 @@ const folderContents = {
       type: "file",
       icon: "/icons/IOCN.png",
       content:
-        "SpaceX UI Clone: A responsive landing page built with vanilla JS and CSS",
+        "SpaceX UI Clone: A responsive landing page built with React, Tailwind CSS, and GSAP animations.",
     },
     {
       name: "Github.link",
       type: "link",
       icon: "/icons/github.png",
-      url: "https://github.com/theeBajber/plp-final-web",
+      url: "https://github.com/theeBajber/spacex-clone",
     },
     {
       name: "Live.link",
       type: "link",
       icon: "/icons/Safari.png",
-      url: "https://plp-final-web.vercel.app/",
+      url: "https://spacex-clone.vercel.app/",
     },
     { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
   ],
@@ -152,19 +143,13 @@ const folderContents = {
       type: "file",
       icon: "/icons/IOCN.png",
       content:
-        "A web-based calculator app built with JS, styled using CSS, featuring draggable UI for Noon OS integration.",
-    },
-    {
-      name: "Calculator",
-      type: "app",
-      icon: "/icons/Calculator.png",
-      url: "calculator",
+        "A calculator app built with React, styled using Tailwind, featuring draggable UI for Noon OS integration.",
     },
     {
       name: "Github.link",
       type: "link",
       icon: "/icons/github.png",
-      url: "https://github.com/theeBajber/calculator",
+      url: "https://github.com/theeBajber/noon-calculator",
     },
     { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
   ],
@@ -177,79 +162,29 @@ const folderContents = {
         "ToDo app built with React, Tailwind CSS, and integrated inside Noon OS as a draggable widget for productivity.",
     },
     {
-      name: "ToDo",
-      type: "app",
-      icon: "/icons/Notes.png",
-      url: "todo",
-    },
-    {
       name: "Github.link",
       type: "link",
       icon: "/icons/github.png",
-      url: "https://github.com/theeBajber/Portfolio/blob/main/app/ui/toDo.js",
+      url: "https://github.com/theeBajber/noon-todo",
     },
-
     { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
   ],
   "Desktop/Bin": [],
   Downloads: [],
   Documents: [
-    {
-      name: "Resume.doc",
-      type: "link",
-      url: "./resume.doc",
-      icon: "/icons/IOCN.png",
-    },
-    {
-      name: "About.txt",
-      type: "file",
-      icon: "/icons/IOCN.png",
-      content: `<strong>Faraj S. Ahmed</strong><br/>
-    <strong>BSc Comp Sci</strong>, Mount Kenya Uni.<br/>
-    I’m a software developer with a focus on web technologies and cybersecurity.<br/>
-    I enjoy solving problems, building useful tools, and exploring new ideas through hackathons and collaborative projects.
-  `,
-    },
+    { name: "Resume.doc", icon: "/icons/Terminal.png" },
+    { name: "About.txt", icon: "/icons/Terminal.png" },
     { name: "Certificates", type: "folder", icon: "/icons/Folder1.png" },
   ],
   "Documents/Certificates": [
-    {
-      name: "Nextjs.png",
-      url: "/photos/nextjs.png",
-      type: "image",
-      icon: "/icons/Pics.png",
-    },
-    {
-      name: "React.png",
-      type: "image",
-      url: "/photos/react.png",
-      icon: "/icons/Pics.png",
-    },
+    { name: "cert1.png", icon: "/icons/Terminal.png" },
+    { name: "cert2.png", icon: "/icons/Terminal.png" },
   ],
-  Pictures: [
-    {
-      name: "Me.jpg",
-      url: "/photos/Faraj.png",
-      type: "image",
-      icon: "/icons/Pics.png",
-    },
-    {
-      name: "My nvim.jpg",
-      url: "/photos/Nvim.png",
-      type: "image",
-      icon: "/icons/Pics.png",
-    },
-  ],
+  Pictures: [{ name: "Me.jpg", icon: "/icons/Terminal.png" }],
   Videos: [],
 };
 
-export default function Explorer({
-  className,
-  onClose,
-  openApp,
-  opentxt,
-  openimg,
-}) {
+export default function Explorer({ className, onClose, openApp }) {
   const [activeFolder, setActiveFolder] = useState("Desktop");
   const [history, setHistory] = useState(["Desktop"]);
   const [historyIndex, setHistoryIndex] = useState(0);
@@ -382,10 +317,6 @@ export default function Explorer({
                   window.open(item.url, "_blank");
                 } else if (item.type === "app") {
                   openApp(item.url);
-                } else if (item.type == "file") {
-                  opentxt({ name: item.name, content: item.content });
-                } else if (item.type == "image") {
-                  openimg({ name: item.name, content: item.url });
                 }
               }}
             >

@@ -18,6 +18,9 @@ import { Launcher } from "./ui/launcher";
 import { Analytics } from "@vercel/analytics/next";
 import TicTacToe from "./ui/tic-tac-toe";
 import Overlay from "./ui/overlay";
+import { handleClientScriptLoad } from "next/script";
+import TextViewer from "./ui/textViewer";
+import ImageViewer from "./ui/imageViwer";
 
 export default function Home() {
   const [calcShown, setCalcShown] = useState(false);
@@ -31,6 +34,8 @@ export default function Home() {
   const [picsShown, setPicsShown] = useState(false);
   const [launcherShown, setLauncherShown] = useState(false);
   const [overlayShown, setOverlayShown] = useState(true);
+  const [textViewer, setTextViewer] = useState(null);
+  const [imageViewer, setImageViewer] = useState(null);
   const toggleCalc = () => {
     setCalcShown(!calcShown);
   };
@@ -164,6 +169,9 @@ export default function Home() {
         <Explorer
           className={`${finderShown ? "block" : "hidden"}`}
           onClose={toggleFinder}
+          openApp={handleLaunchApp}
+          opentxt={(file) => setTextViewer(file)}
+          openimg={(file) => setImageViewer(file)}
         />
       </Draggable>
       <Draggable>
@@ -172,7 +180,7 @@ export default function Home() {
           onClose={toggleAyra}
         />
       </Draggable>
-      <Draggable>
+      <Draggable className="w-[90%] sm:w-auto">
         <Pics
           className={`${picsShown ? "block" : "hidden"}`}
           onClose={togglePics}
@@ -183,6 +191,22 @@ export default function Home() {
           className={`${ticTacToeShown ? "block" : "hidden"}`}
           onClose={toggleTicTacToe}
         />
+      </Draggable>
+      <Draggable>
+        {textViewer && (
+          <TextViewer
+            onClose={() => setTextViewer(null)}
+            txt={textViewer.content}
+          />
+        )}
+      </Draggable>
+      <Draggable>
+        {imageViewer && (
+          <ImageViewer
+            onClose={() => setImageViewer(null)}
+            src={imageViewer.content}
+          />
+        )}
       </Draggable>
       <Launcher
         className={`${launcherShown ? "flex" : "hidden"}`}
