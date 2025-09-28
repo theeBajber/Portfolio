@@ -5,11 +5,15 @@ import { Download } from "lucide-react";
 import { VideoIcon } from "lucide-react";
 import { GalleryHorizontal } from "lucide-react";
 import { useState } from "react";
+import { ChevronLeft } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { LayoutGrid } from "lucide-react";
+import { FolderClosed } from "lucide-react";
 
 const folderContents = {
   Desktop: [
     { name: "Projects", icon: "/icons/Folder1.png", type: "folder" },
-    { name: "Bin", icon: "/icons/Bin.png" },
+    { name: "Bin", icon: "/icons/Bin.png", type: "folder" },
     { name: "Skills.doc", icon: "/icons/Terminal.png" },
   ],
   "Desktop/Projects": [
@@ -18,6 +22,7 @@ const folderContents = {
     { name: "Calculator", icon: "icons/Folder1.png", type: "folder" },
     { name: "ToDo", icon: "icons/Folder1.png", type: "folder" },
   ],
+  "Desktop/Bin": [],
   Downloads: [],
   Documents: [
     { name: "Resume.doc", icon: "/icons/Terminal.png" },
@@ -37,36 +42,35 @@ export default function Explorer({ className, onClose }) {
       {/*Aside*/}
       <div className="h-full w-2/7 absolute top-0 left-0 rounded-l-lg bg-white/20 pt-3">
         <div className="flex flex-col home text-sm">
-          <div className="flex flex-col border-b-gray-400 border-b  w-full">
-            <div className="flex items-center">
+          <div className="flex flex-col w-full">
+            <div className="ml-0.5 mb-1 flex items-center">
               <img src="/icons/Folder1.png" className="h-5" />
               <h4 className="text-gray-700 text-xs pl-1">Files</h4>
             </div>
-            <input className="rounded-lg border" />
           </div>
           <button
-            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Desktop" ? "bg-sky-300/30" : ""} `}
+            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Desktop" ? "bg-emerald-300/30" : ""} `}
             onClick={() => setActiveFolder("Desktop")}
           >
             <FaDesktop className="h-3 mr-1.5" />
             <span className="">Desktop</span>
           </button>
           <button
-            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Documents" ? "bg-sky-300/30" : ""} `}
+            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Documents" ? "bg-emerald-300/30" : ""} `}
             onClick={() => setActiveFolder("Documents")}
           >
             <DocumentTextIcon className="h-3.5 mr-1.5" />
             <span>Documents</span>
           </button>
           <button
-            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Downloads" ? "bg-sky-300/30" : ""} `}
+            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Downloads" ? "bg-emerald-300/30" : ""} `}
             onClick={() => setActiveFolder("Downloads")}
           >
             <Download className="h-3.5 -ml-1" />
             <span>Downloads</span>
           </button>
           <button
-            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Pictures" ? "bg-sky-300/30" : ""} `}
+            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Pictures" ? "bg-emerald-300/30" : ""} `}
             onClick={() => setActiveFolder("Pictures")}
           >
             <GalleryHorizontal className="h-3.5 -ml-1" />
@@ -74,7 +78,7 @@ export default function Explorer({ className, onClose }) {
           </button>
           <button
             onClick={() => setActiveFolder("Videos")}
-            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Videos" ? "bg-sky-300/30" : ""} `}
+            className={`hover:bg-gray-200/30 text-gray-700 ${activeFolder == "Videos" ? "bg-emerald-300/30" : ""} `}
           >
             <VideoIcon className="h-3.5 -ml-1" />
             <span>Videos</span>
@@ -82,21 +86,51 @@ export default function Explorer({ className, onClose }) {
         </div>
       </div>
       {/*Main*/}
-      <div className="h-[calc(100%-1.5rem)] absolute top-6 right-0 w-5/7 rounded-br-lg flex flex-wrap p-4 gap-2 items-baseline">
-        {folderContents[activeFolder]?.map((item, index) => (
-          <button
-            key={index}
-            className="w-16 flex flex-col justify-center items-center cursor-pointer"
-            onClick={() => {
-              if (item.type == "folder") {
-                setActiveFolder(`${activeFolder}/${item.name}`);
-              }
-            }}
-          >
-            <img src={item.icon} className="h-14 w-auto" />
-            <div className="text-xs text-white">{item.name}</div>
-          </button>
-        ))}
+      <div className="h-[calc(100%-1.5rem)] absolute top-6 right-0 w-5/7 rounded-br-lg">
+        <div className="flex justify-evenly mt-1">
+          <div className=" flex [&>*]:hover:border [&>*]:border-emerald-500 [&>*]:rounded-sm [&>*]:p-0.5 gap-0.5">
+            <ChevronLeft />
+            <ChevronRight />
+            <LayoutGrid />
+          </div>
+          <div className="border border-gray-500 rounded-sm w-[70%] bg-white/40 flex items-center px-1 overflow-hidden">
+            <FolderClosed className="mr-1 h-4" />
+            <div className="flex items-center text-sm font-mono truncate">
+              {activeFolder.split("/").map((part, idx, arr) => {
+                const path = arr.slice(0, idx + 1).join("/");
+                return (
+                  <span key={path} className="flex items-center shrink-0">
+                    <span
+                      onClick={() => setActiveFolder(path)}
+                      className="cursor-pointer hover:underline"
+                    >
+                      {part}
+                    </span>
+                    {idx < arr.length - 1 && (
+                      <ChevronRight className="h-3 shrink-0" />
+                    )}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-wrap p-4 gap-2 items-baseline">
+          {folderContents[activeFolder]?.map((item, index) => (
+            <button
+              key={index}
+              className="w-16 flex flex-col justify-center items-center cursor-pointer"
+              onClick={() => {
+                if (item.type == "folder") {
+                  setActiveFolder(`${activeFolder}/${item.name}`);
+                }
+              }}
+            >
+              <img src={item.icon} className="h-14 w-auto" />
+              <div className="text-xs text-black">{item.name}</div>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
