@@ -160,7 +160,7 @@ export default function Home() {
           onClose={toggleToDo}
         />
       </Draggable>
-      <Draggable>
+      <Draggable className="w-[95%] sm:w-auto">
         <Explorer
           className={`${finderShown ? "block" : "hidden"}`}
           onClose={toggleFinder}
