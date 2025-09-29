@@ -134,7 +134,7 @@ export default function Terminal({ onClose, className }) {
   };
   return (
     <div
-      className={`h-80 w-96 bg-black/30 rounded-lg backdrop-blur-xl ${className} font-mono px-2 text-white`}
+      className={`h-80 w-full min-w-76 sm:w-96 bg-black/30 rounded-lg backdrop-blur-xl ${className} font-mono px-2 text-white`}
       onClick={() => inputRef.current?.focus()}
     >
       <Header onClose={onClose} className="" />

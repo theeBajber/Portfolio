@@ -13,6 +13,7 @@ export default function Taskbar({
   onLauncherClick,
 }) {
   useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     const buttons = document.querySelectorAll(".taskbar > button");
     buttons.forEach((btn, i) => {
       btn.addEventListener("mouseenter", () => {

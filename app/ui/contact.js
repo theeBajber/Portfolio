@@ -55,7 +55,7 @@ export default function Contact({ className, onClose }) {
             <Link href={"mailto:ajrafsalim@gmail.com"}>
               ajrafsalim@gmail.com
             </Link>
-            <Link href={"https://github.com/theeBajber"}>Al-Bajber</Link>
+            <Link href={"https://github.com/theeBajber"}>theeBajber</Link>
             <Link href={"https://www.linkedin.com/in/faraj-salim-784395373/"}>
               Faraj Salim
             </Link>

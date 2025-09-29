@@ -39,7 +39,7 @@ export default function Pics({ onClose, className }) {
       className={`flex flex-col w-full sm:w-[600px] h-[420px] bg-white/10 backdrop-blur-md rounded-lg overflow-hidden border border-white/30 ${className}`}
     >
       {/* Header Bar */}
-      <Header onClose={onClose} className={``} />
+      <Header onClose={onClose} className={`z-23`} />
       <img
         src="/icons/Pics.png"
         className="absolute top-2 left-2 h-7 pointer-events-none"
@@ -169,22 +169,16 @@ export default function Pics({ onClose, className }) {
       {/* Fullscreen Preview */}
       {preview && (
         <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/80 w-[calc(100% - 1.5rem)] flex items-center justify-center z-20"
           onClick={() => setPreview(null)}
         >
-          <div className="relative max-w-4xl max-h-[90vh] p-4">
+          <div className="relative w-full h-full p-6 flex items-center justify-center">
             <img
               src={preview}
               alt="Preview"
-              className="max-w-full max-h-full object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              className="absolute top-4 right-4 text-white"
+              className="max-w-full max-h-full object-contain cursor-pointer"
               onClick={() => setPreview(null)}
-            >
-              <X className="w-6 h-6" />
-            </button>
+            />
           </div>
         </div>
       )}

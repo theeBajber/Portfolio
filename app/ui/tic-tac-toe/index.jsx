@@ -28,36 +28,57 @@ export default function TicTacToe({ onClose, className }) {
     }
     if (!nextSquares.includes(null)) {
       setScores((s) => ({ ...s, d: s.d + 1 }));
+      return;
     }
     setXIsNext((prev) => !prev);
   }
   useEffect(() => {
-    if (isBot && !xIsNext) {
+    if (isBot && !xIsNext && !winner && squares.includes(null)) {
       const botSquares = botMove(squares);
       if (botSquares) {
         setTimeout(() => handlePlay(botSquares), 500);
       }
     }
-  }, [xIsNext, isBot]);
+  }, [xIsNext, isBot, winner, squares]);
 
-  let status = winner ? (
-    <>Winner: {winner.Player} 🎉</>
-  ) : (
-    <>
-      Player{" "}
-      <span
-        className={`${xIsNext ? "text-pink-400" : "text-blue-500"} font-bold`}
-      >
-        {xIsNext ? "X" : "O"}
-      </span>
-      's turn
-    </>
-  );
+  let status;
+
+  if (winner) {
+    status = (
+      <>
+        Winner:{" "}
+        {winner.Player === "X" ? (
+          <>
+            Player <span className="text-pink-400 font-bold">X</span>
+          </>
+        ) : (
+          <>
+            Ayra <span className="text-blue-500 font-bold">O</span>
+          </>
+        )}{" "}
+        🎉
+      </>
+    );
+  } else if (!squares.includes(null)) {
+    status = <>It&apos;s a Draw 🤝</>;
+  } else {
+    status = (
+      <>
+        {xIsNext ? "Player" : "Ayra"}{" "}
+        <span
+          className={`${xIsNext ? "text-pink-400" : "text-blue-500"} font-bold`}
+        >
+          {xIsNext ? "X" : "O"}
+        </span>
+        's turn
+      </>
+    );
+  }
   return (
     <div
-      className={`w-[40vw] h-98 bg-white/20 backdrop-blur-2xl rounded-lg ${className}`}
+      className={`relative sm:w-[40vw] w-full min-w-75 h-98 bg-white/20 backdrop-blur-2xl rounded-lg ${className}`}
     >
-      <Header className="fixed top-0" onClose={onClose} />
+      <Header className="absolute top-0" onClose={onClose} />
       <div className="flex flex-col justify-evenly items-center w-full h-92 relative top-6 text-white">
         <div className="w-full h-1/5 flex justify-evenly">
           <Card turn="X" value={scores.x} />

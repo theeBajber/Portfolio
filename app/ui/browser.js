@@ -32,7 +32,7 @@ export default function Shoofly({ className, onClose }) {
   }, []);
   return (
     <div
-      className={`${className} w-120 h-84 bg-white/30 backdrop-blur-lg rounded-lg`}
+      className={`${className} w-full sm:w-120 h-84 bg-white/30 backdrop-blur-lg rounded-lg`}
     >
       <div className="drag-handle w-full h-7 flex items-center justify-evenly">
         <div className="flex items-center w-9/10 justify-evenly ml-2">

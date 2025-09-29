@@ -147,13 +147,13 @@ export default function Home() {
           onClose={toggleContact}
         />
       </Draggable>
-      <Draggable>
+      <Draggable className="w-[90%] sm:w-auto">
         <Shoofly
           className={`${browsershown ? "block" : "hidden"} `}
           onClose={toggleBrowser}
         />
       </Draggable>
-      <Draggable>
+      <Draggable className="w-[90%] sm:w-auto">
         <Terminal
           className={`${termShown ? "block" : "hidden"}`}
           onClose={toggleTerm}
@@ -186,7 +186,7 @@ export default function Home() {
           onClose={togglePics}
         />
       </Draggable>
-      <Draggable>
+      <Draggable className="w-[90%] sm:w-auto">
         <TicTacToe
           className={`${ticTacToeShown ? "block" : "hidden"}`}
           onClose={toggleTicTacToe}
