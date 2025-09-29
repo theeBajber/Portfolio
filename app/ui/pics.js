@@ -13,6 +13,7 @@ const images = [
   "/photos/Nvim.png",
   "/photos/Faraj3.jpeg",
   "/photos/Faraj5.jpeg",
+  "/photos/night.jpg",
 ];
 
 const viewModes = ["masonry", "grid", "list"];

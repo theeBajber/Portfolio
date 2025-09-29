@@ -56,7 +56,12 @@ const folderContents = {
       icon: "/icons/messages.png",
       url: "ayra",
     },
-    { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
+    {
+      name: "Screenshot",
+      url: "/screenshots/WeemWeb.png",
+      type: "image",
+      icon: "/icons/Pics.png",
+    },
   ],
   "Desktop/Projects/Screenworld": [
     {
@@ -78,7 +83,12 @@ const folderContents = {
       icon: "/icons/Safari.png",
       url: "https://screenworld.co.ke/",
     },
-    { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
+    {
+      name: "Screenshot",
+      url: "/screenshots/Screenworld.png",
+      type: "image",
+      icon: "/icons/Pics.png",
+    },
   ],
   "Desktop/Projects/hackathon": [
     {
@@ -100,7 +110,12 @@ const folderContents = {
       icon: "/icons/Safari.png",
       url: "https://knf-portfolio.vercel.app/",
     },
-    { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
+    {
+      name: "Screenshot",
+      url: "/screenshots/Hackathon.png",
+      type: "image",
+      icon: "/icons/Pics.png",
+    },
   ],
   "Desktop/Projects/weem": [
     {
@@ -122,7 +137,12 @@ const folderContents = {
       icon: "/icons/Safari.png",
       url: "https://weemweb.org/",
     },
-    { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
+    {
+      name: "Screenshot",
+      type: "image",
+      url: "/screenshots/WeemWeb.png",
+      icon: "/icons/Pics.png",
+    },
   ],
   "Desktop/Projects/SpaceX": [
     {
@@ -144,7 +164,12 @@ const folderContents = {
       icon: "/icons/Safari.png",
       url: "https://plp-final-web.vercel.app/",
     },
-    { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
+    {
+      name: "Screenshot",
+      url: "/screenshots/SpaceX.png",
+      type: "image",
+      icon: "/icons/Pics.png",
+    },
   ],
   "Desktop/Projects/Calculator": [
     {
@@ -166,7 +191,12 @@ const folderContents = {
       icon: "/icons/github.png",
       url: "https://github.com/theeBajber/calculator",
     },
-    { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
+    {
+      name: "Screenshot",
+      url: "/screenshots/calculator.png",
+      type: "image",
+      icon: "/icons/Pics.png",
+    },
   ],
   "Desktop/Projects/ToDo": [
     {
@@ -189,7 +219,12 @@ const folderContents = {
       url: "https://github.com/theeBajber/Portfolio/blob/main/app/ui/toDo.js",
     },
 
-    { name: "Screenshot", type: "image", icon: "/icons/Pics.png" },
+    {
+      name: "Screenshot",
+      url: "/screenshots/ToDo.png",
+      type: "image",
+      icon: "/icons/Pics.png",
+    },
   ],
   "Desktop/Bin": [],
   Downloads: [],
@@ -229,7 +264,7 @@ const folderContents = {
   Pictures: [
     {
       name: "Me.jpg",
-      url: "/photos/Faraj.png",
+      url: "/photos/Faraj.jpeg",
       type: "image",
       icon: "/icons/Pics.png",
     },
