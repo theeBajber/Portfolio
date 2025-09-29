@@ -40,6 +40,10 @@ export default function Pics({ onClose, className }) {
     >
       {/* Header Bar */}
       <Header onClose={onClose} className={``} />
+      <img
+        src="/icons/Pics.png"
+        className="absolute top-2 left-2 h-7 pointer-events-none"
+      />
 
       {/* Top controls */}
       <div className="p-3 border-b border-white/10 flex items-center gap-4">

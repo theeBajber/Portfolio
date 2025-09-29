@@ -21,6 +21,7 @@ export default function Shoofly({ className, onClose }) {
     >
       <div className="drag-handle w-full h-7 flex items-center justify-evenly">
         <div className="flex items-center w-9/10 justify-evenly ml-2">
+          <img src="/icons/Safari.png" className="h-5 pointer-events-none" />
           <button
             className="cursor-pointer"
             onClick={() => setFrameSource("../newtab/")}

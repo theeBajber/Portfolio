@@ -104,6 +104,10 @@ export default function Calculator({ className, onClose }) {
       className={`rounded-lg p-2 border-2 flex-col justify-between border-gray-700 bg-white/10 backdrop-blur-xl ${salsa.className} ${className}`}
     >
       <Header onClose={onClose} className="" />
+      <img
+        src="/icons/Calculator.png"
+        className="absolute top-2 left-2 h-7 pointer-events-none"
+      />
       <div className="flex flex-col items-end justify-center h-24 bg-black text-white rounded mb-2 p-2">
         <div className="text-sm text-gray-400">
           {firstOperand} {operation}
