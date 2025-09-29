@@ -19,31 +19,38 @@ export default function Player({ className }) {
   const tracks = [
     {
       id: 1,
-      title: "Echo of Sadness",
-      artist: "Turnique",
-      src: "/music/B3ed 3anak.mp3",
-      cover: "/covers/hope.png",
+      title: "Chronicles of a hero",
+      artist: "Eternal Eclipse",
+      src: "/music/Eternal Eclipse - Chronicles of a Hero.mp3",
+      cover: "/covers/coffee.jpg",
     },
     {
       id: 2,
-      title: "Hope",
-      artist: "Ishak",
-      src: "/music/Another Love.mp3",
+      title: "Nara",
+      artist: "Posthumus",
+      src: "/music/Nara.mp3",
+      cover: "/covers/records.jpg",
+    },
+    {
+      id: 3,
+      title: "I Love You",
+      artist: "Farouk",
+      src: "/music/Omar Faruk - I Love You.mp3",
+      cover: "/covers/discwave.jpg",
+    },
+    {
+      id: 4,
+      title: "Dari Ya Alby",
+      artist: "Namira",
+      src: "/music/Hamza Namira - Dari Ya Alby.mp3",
       cover: "/covers/slowlife.png",
     },
     {
-      id: 1,
-      title: "The Reason",
-      artist: "Belfagih",
-      src: "/music/Co2.mp3",
+      id: 5,
+      title: "Theme Of Laura II",
+      artist: "Akira",
+      src: "/music/Theme Of Laura II.mp3",
       cover: "/covers/echoofsadness.png",
-    },
-    {
-      id: 1,
-      title: "Winter is coming",
-      artist: "Tirimi",
-      src: "/music/Skylarking.mp3",
-      cover: "/covers/dawnofchange.png",
     },
   ];
   const [currentTrackIndex, setCurrentTrackIndex] = useState(1);
@@ -169,7 +176,7 @@ export default function Player({ className }) {
           alt={currentTrack.title}
           height={68}
           width={68}
-          className="rounded-full"
+          className="rounded-full aspect-square"
         />
         <div className="pl-3">
           <div>{currentTrack.title}</div>
