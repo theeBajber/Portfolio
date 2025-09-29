@@ -1,5 +1,6 @@
 import {
   Amiri,
+  Bungee,
   Dosis,
   Inter,
   Manrope,
@@ -15,3 +16,4 @@ export const salsa = Salsa({ subsets: ["latin"], weight: "400" });
 export const dosis = Dosis({ subsets: ["latin"], weight: ["400", "800"] });
 export const patrick = Patrick_Hand({ subsets: ["latin"], weight: ["400"] });
 export const amiri = Amiri({ subsets: ["arabic"], weight: ["700"] });
+export const bungee = Bungee({ subsets: ["latin"], weight: ["400"] });

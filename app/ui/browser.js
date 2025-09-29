@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./header";
 import { HomeIcon } from "@heroicons/react/24/solid";
+import { useEffect } from "react";
 
 export default function Shoofly({ className, onClose }) {
   const [url, setUrl] = useState("");
@@ -15,6 +16,20 @@ export default function Shoofly({ className, onClose }) {
       setFrameSource(input);
     }
   };
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.data?.type === "navigate" && event.data.url) {
+        let target = event.data.url.trim();
+        if (!target.startsWith("http")) {
+          target = "https://" + target;
+        }
+        setFrameSource(target);
+        setUrl(target);
+      }
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, []);
   return (
     <div
       className={`${className} w-120 h-84 bg-white/30 backdrop-blur-lg rounded-lg`}
