@@ -32,7 +32,8 @@
   transform-origin: bottom;
 }
 .taskbar button img {
-  height: 100%;
+  width: 100%;
+  height: auto;
   pointer-events: none;
   transition: transform 0.4s ease-in-out;
 }

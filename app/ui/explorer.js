@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-const folderContents = {
+export const folderContents = {
   Desktop: [
     { name: "Projects", icon: "/icons/Folder1.png", type: "folder" },
     { name: "Bin", icon: "/icons/Bin.png", type: "folder" },

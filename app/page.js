@@ -34,8 +34,20 @@ export default function Home() {
   const [picsShown, setPicsShown] = useState(false);
   const [launcherShown, setLauncherShown] = useState(false);
   const [overlayShown, setOverlayShown] = useState(true);
+
   const [textViewer, setTextViewer] = useState(null);
   const [imageViewer, setImageViewer] = useState(null);
+  const [focusid, setFocusid] = useState(null);
+  const [zOrder, setZOrder] = useState([]);
+  const bringToFront = (id) => {
+    setZOrder((prev) => {
+      const without = prev.filter((w) => w !== id);
+      return [...without, id];
+    });
+    setFocusid(id);
+  };
+  const getZIndex = (id) => 100 + zOrder.indexOf(id);
+
   const toggleCalc = () => {
     setCalcShown(!calcShown);
   };
@@ -130,10 +142,11 @@ export default function Home() {
         className="sm:w-[35%] fixed bottom-8 left-1/2 -translate-x-1/2"
       />
       <Player className="fixed top-10 sm:left-3 sm:translate-x-0 -translate-x-1/2 left-1/2 w-[85%] sm:w-1/3 h-40" />
-      <Draggable>
+      <Draggable onMouseDown={() => bringToFront("calculator")}>
         <Calculator
           className={`w-[280px] h-[450px] ${calcShown ? "flex" : "hidden"}`}
           onClose={toggleCalc}
+          style={{ zIndex: getZIndex("calculator") }}
         />
       </Draggable>
       <Clock
@@ -141,31 +154,43 @@ export default function Home() {
           "fixed w-[320px] h-[280px] right-3 top-5 -z-1 hidden sm:block"
         }
       />
-      <Draggable>
+      <Draggable onMouseDown={() => bringToFront("contact")}>
         <Contact
           className={`h-50 w-80 ${contactShown ? "block" : "hidden"}`}
           onClose={toggleContact}
+          style={{ zIndex: getZIndex("contact") }}
         />
       </Draggable>
-      <Draggable className="w-[90%] sm:w-auto">
+      <Draggable
+        className="w-[90%] sm:w-auto"
+        onMouseDown={() => bringToFront("shoofly")}
+      >
         <Shoofly
           className={`${browsershown ? "block" : "hidden"} `}
           onClose={toggleBrowser}
+          style={{ zIndex: getZIndex("shoofly") }}
         />
       </Draggable>
-      <Draggable className="w-[90%] sm:w-auto">
+      <Draggable
+        className="w-[90%] sm:w-auto"
+        onMouseDown={() => bringToFront("terminal")}
+        style={{ zIndex: getZIndex("terminal") }}
+      >
         <Terminal
           className={`${termShown ? "block" : "hidden"}`}
           onClose={toggleTerm}
         />
       </Draggable>
-      <Draggable>
+      <Draggable onMouseDown={() => bringToFront("todo")}>
         <ToDo
           className={`${todoShown ? "block" : "hidden"}`}
           onClose={toggleToDo}
         />
       </Draggable>
-      <Draggable className="w-[95%] sm:w-auto">
+      <Draggable
+        className="w-[95%] sm:w-auto"
+        onMouseDown={() => bringToFront("explorer")}
+      >
         <Explorer
           className={`${finderShown ? "block" : "hidden"}`}
           onClose={toggleFinder}
@@ -174,25 +199,31 @@ export default function Home() {
           openimg={(file) => setImageViewer(file)}
         />
       </Draggable>
-      <Draggable>
+      <Draggable onMouseDown={() => bringToFront("ayra")}>
         <Ayra
           className={`${ayraShown ? "flex" : "hidden"}`}
           onClose={toggleAyra}
         />
       </Draggable>
-      <Draggable className="w-[90%] sm:w-auto">
+      <Draggable
+        className="w-[90%] sm:w-auto"
+        onMouseDown={() => bringToFront("pics")}
+      >
         <Pics
           className={`${picsShown ? "block" : "hidden"}`}
           onClose={togglePics}
         />
       </Draggable>
-      <Draggable className="w-[90%] sm:w-auto">
+      <Draggable
+        className="w-[90%] sm:w-auto"
+        onMouseDown={() => bringToFront("tictactoe")}
+      >
         <TicTacToe
           className={`${ticTacToeShown ? "block" : "hidden"}`}
           onClose={toggleTicTacToe}
         />
       </Draggable>
-      <Draggable>
+      <Draggable onMouseDown={() => bringToFront("textviewer")}>
         {textViewer && (
           <TextViewer
             onClose={() => setTextViewer(null)}
@@ -200,7 +231,7 @@ export default function Home() {
           />
         )}
       </Draggable>
-      <Draggable>
+      <Draggable onMouseDown={() => bringToFront("imageviewer")}>
         {imageViewer && (
           <ImageViewer
             onClose={() => setImageViewer(null)}
