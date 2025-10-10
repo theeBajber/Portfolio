@@ -37,6 +37,7 @@ export default function Home() {
   const [openApps, setOpenApps] = useState([]);
   const [textViewer, setTextViewer] = useState(null);
   const [imageViewer, setImageViewer] = useState(null);
+  const [shooflyDragging, setShooflyDragging] = useState(false);
 
   const bringToFront = (appName) => {
     setOpenApps((prev) => {
@@ -178,6 +179,8 @@ export default function Home() {
       <Draggable
         className="w-[90%] sm:w-auto"
         styles={{ zIndex: openApps.indexOf("shoofly") + 10 }}
+        onDragStart={() => setShooflyDragging(true)}
+        onDragEnd={() => setShooflyDragging(false)}
         onmousedown={() => {
           bringToFront("shoofly");
         }}
@@ -185,6 +188,9 @@ export default function Home() {
         <Shoofly
           className={`${browsershown ? "block" : "hidden"} `}
           onClose={toggleBrowser}
+          isDragging={shooflyDragging}
+          isFocused={openApps[openApps.length - 1] == "shoofly"}
+          onFocus={() => bringToFront("shoofly")}
         />
       </Draggable>
       <Draggable

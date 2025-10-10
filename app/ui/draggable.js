@@ -5,6 +5,8 @@ export default function Draggable({
   handleClass = ".drag-handle",
   styles,
   onmousedown,
+  onDragEnd,
+  onDragStart,
   className = "",
 }) {
   const wrapperRef = useRef(null);
@@ -16,6 +18,7 @@ export default function Draggable({
     let startX, startY;
 
     const onMouseDown = (e) => {
+      onDragStart?.();
       if (handleClass && !e.target.closest(handleClass)) return;
       if (
         e.target.tagName === "INPUT" ||
@@ -66,6 +69,7 @@ export default function Draggable({
     };
 
     const onMouseUp = () => {
+      onDragEnd?.();
       isDraggingRef.current = false;
       document.removeEventListener("mouseup", onMouseUp);
       document.removeEventListener("mousemove", onMouseMove);

@@ -3,7 +3,13 @@ import Header from "./header";
 import { HomeIcon } from "@heroicons/react/24/solid";
 import { useEffect } from "react";
 
-export default function Shoofly({ className, onClose }) {
+export default function Shoofly({
+  className,
+  onClose,
+  isDragging,
+  isFocused,
+  onFocus,
+}) {
   const [url, setUrl] = useState("");
   const [frameSource, setFrameSource] = useState("../newtab/");
   const handleKey = (e) => {
@@ -56,6 +62,12 @@ export default function Shoofly({ className, onClose }) {
         src={frameSource}
         className="w-full h-[calc(100%-28px)] rounded-b-lg"
       />
+      {(isDragging || !isFocused) && (
+        <div
+          onMouseDown={() => onFocus?.()}
+          className="absolute top-7 left-0 w-full h-[calc(100%-28px)] bg-transparent z-50"
+        ></div>
+      )}
     </div>
   );
 }
