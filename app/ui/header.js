@@ -4,7 +4,10 @@ export default function Header({ onClose, className }) {
       <div
         className={`${className} flex justify-end items-center h-6 px-2 mb-1 w-full drag-handle`}
       >
-        <button className="w-3 h-3 bg-green-600 rounded-full leading-3 text-transparent mr-1.5">
+        <button
+          className="w-3 h-3 bg-green-600 rounded-full leading-3 text-transparent mr-1.5"
+          onClick={onClose}
+        >
           -
         </button>
         <button className="w-3 h-3 bg-amber-300 rounded-full leading-3 text-transparent mr-1.5">
