@@ -34,54 +34,60 @@ export default function Home() {
   const [picsShown, setPicsShown] = useState(false);
   const [launcherShown, setLauncherShown] = useState(false);
   const [overlayShown, setOverlayShown] = useState(true);
-
+  const [openApps, setOpenApps] = useState([]);
   const [textViewer, setTextViewer] = useState(null);
   const [imageViewer, setImageViewer] = useState(null);
-  const [focusid, setFocusid] = useState(null);
-  const [zOrder, setZOrder] = useState([]);
-  const bringToFront = (id) => {
-    setZOrder((prev) => {
-      const without = prev.filter((w) => w !== id);
-      return [...without, id];
-    });
-    setFocusid(id);
-  };
-  const getZIndex = (id) => 100 + zOrder.indexOf(id);
 
+  const bringToFront = (appName) => {
+    setOpenApps((prev) => {
+      const filtered = prev.filter((a) => a !== appName);
+      return [...filtered, appName];
+    });
+  };
   const toggleCalc = () => {
+    bringToFront("calculator");
     setCalcShown(!calcShown);
   };
   const toggleContact = () => {
+    bringToFront("contact");
     setContactShown(!contactShown);
   };
   const toggleBrowser = () => {
+    bringToFront("shoofly");
     setBrowserShown(!browsershown);
   };
   const toggleTerm = () => {
+    bringToFront("terminal");
     setTermShown(!termShown);
   };
   const toggleToDo = () => {
+    bringToFront("todo");
     setTodoShown(!todoShown);
   };
   const toggleFinder = () => {
+    bringToFront("files");
     setFinderShown(!finderShown);
   };
   const toggleAyra = () => {
+    bringToFront("ayra");
     setAyraShown(!ayraShown);
   };
   const togglePics = () => {
+    bringToFront("pics");
     setPicsShown(!picsShown);
   };
   const toggleLauncher = () => {
     setLauncherShown(!launcherShown);
   };
   const toggleTicTacToe = () => {
+    bringToFront("tic-tac-toe");
     setTicTacToeShown(!ticTacToeShown);
   };
   const toggleOverlay = () => {
     setOverlayShown(!overlayShown);
   };
   const handleLaunchApp = (appName) => {
+    bringToFront(appName);
     switch (appName) {
       case "calculator":
         setCalcShown(true);
@@ -142,11 +148,16 @@ export default function Home() {
         className="sm:w-[35%] fixed bottom-8 left-1/2 -translate-x-1/2"
       />
       <Player className="fixed top-10 sm:left-3 sm:translate-x-0 -translate-x-1/2 left-1/2 w-[85%] sm:w-1/3 h-40" />
-      <Draggable onMouseDown={() => bringToFront("calculator")}>
+      <Draggable
+        styles={{ zIndex: openApps.indexOf("calculator") + 10 }}
+        onmousedown={() => {
+          bringToFront("calculator");
+          console.log("clicked");
+        }}
+      >
         <Calculator
           className={`w-[280px] h-[450px] ${calcShown ? "flex" : "hidden"}`}
           onClose={toggleCalc}
-          style={{ zIndex: getZIndex("calculator") }}
         />
       </Draggable>
       <Clock
@@ -154,34 +165,51 @@ export default function Home() {
           "fixed w-[320px] h-[280px] right-3 top-5 -z-1 hidden sm:block"
         }
       />
-      <Draggable onMouseDown={() => bringToFront("contact")}>
+      <Draggable
+        styles={{ zIndex: openApps.indexOf("contact") + 10 }}
+        onmousedown={() => {
+          bringToFront("contact");
+          console.log("clicked");
+        }}
+      >
         <Contact
           className={`h-50 w-80 ${contactShown ? "block" : "hidden"}`}
           onClose={toggleContact}
-          style={{ zIndex: getZIndex("contact") }}
         />
       </Draggable>
       <Draggable
         className="w-[90%] sm:w-auto"
-        onMouseDown={() => bringToFront("shoofly")}
+        styles={{ zIndex: openApps.indexOf("shoofly") + 10 }}
+        onmousedown={() => {
+          bringToFront("shoofly");
+          console.log("clicked");
+        }}
       >
         <Shoofly
           className={`${browsershown ? "block" : "hidden"} `}
           onClose={toggleBrowser}
-          style={{ zIndex: getZIndex("shoofly") }}
         />
       </Draggable>
       <Draggable
         className="w-[90%] sm:w-auto"
-        onMouseDown={() => bringToFront("terminal")}
-        style={{ zIndex: getZIndex("terminal") }}
+        styles={{ zIndex: openApps.indexOf("terminal") + 10 }}
+        onmousedown={() => {
+          bringToFront("terminal");
+          console.log("clicked");
+        }}
       >
         <Terminal
           className={`${termShown ? "block" : "hidden"}`}
           onClose={toggleTerm}
         />
       </Draggable>
-      <Draggable onMouseDown={() => bringToFront("todo")}>
+      <Draggable
+        styles={{ zIndex: openApps.indexOf("todo") + 10 }}
+        onmousedown={() => {
+          bringToFront("todo");
+          console.log("clicked");
+        }}
+      >
         <ToDo
           className={`${todoShown ? "block" : "hidden"}`}
           onClose={toggleToDo}
@@ -189,7 +217,11 @@ export default function Home() {
       </Draggable>
       <Draggable
         className="w-[95%] sm:w-auto"
-        onMouseDown={() => bringToFront("explorer")}
+        styles={{ zIndex: openApps.indexOf("files") + 10 }}
+        onmousedown={() => {
+          bringToFront("files");
+          console.log("clicked");
+        }}
       >
         <Explorer
           className={`${finderShown ? "block" : "hidden"}`}
@@ -199,7 +231,13 @@ export default function Home() {
           openimg={(file) => setImageViewer(file)}
         />
       </Draggable>
-      <Draggable onMouseDown={() => bringToFront("ayra")}>
+      <Draggable
+        styles={{ zIndex: openApps.indexOf("ayra") + 10 }}
+        onmousedown={() => {
+          bringToFront("ayra");
+          console.log("clicked");
+        }}
+      >
         <Ayra
           className={`${ayraShown ? "flex" : "hidden"}`}
           onClose={toggleAyra}
@@ -207,7 +245,11 @@ export default function Home() {
       </Draggable>
       <Draggable
         className="w-[90%] sm:w-auto"
-        onMouseDown={() => bringToFront("pics")}
+        styles={{ zIndex: openApps.indexOf("pics") + 10 }}
+        onmousedown={() => {
+          bringToFront("pics");
+          console.log("clicked");
+        }}
       >
         <Pics
           className={`${picsShown ? "block" : "hidden"}`}
@@ -216,14 +258,18 @@ export default function Home() {
       </Draggable>
       <Draggable
         className="w-[90%] sm:w-auto"
-        onMouseDown={() => bringToFront("tictactoe")}
+        styles={{ zIndex: openApps.indexOf("tic-tac-toe") + 10 }}
+        onmousedown={() => {
+          bringToFront("tic-tac-toe");
+          console.log("clicked");
+        }}
       >
         <TicTacToe
           className={`${ticTacToeShown ? "block" : "hidden"}`}
           onClose={toggleTicTacToe}
         />
       </Draggable>
-      <Draggable onMouseDown={() => bringToFront("textviewer")}>
+      <Draggable>
         {textViewer && (
           <TextViewer
             onClose={() => setTextViewer(null)}
@@ -231,7 +277,7 @@ export default function Home() {
           />
         )}
       </Draggable>
-      <Draggable onMouseDown={() => bringToFront("imageviewer")}>
+      <Draggable>
         {imageViewer && (
           <ImageViewer
             onClose={() => setImageViewer(null)}

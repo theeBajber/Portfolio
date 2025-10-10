@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 export default function Draggable({
   children,
   handleClass = ".drag-handle",
+  styles,
+  onmousedown,
   className = "",
 }) {
   const wrapperRef = useRef(null);
@@ -84,8 +86,10 @@ export default function Draggable({
     <div
       ref={wrapperRef}
       className={`absolute top-8 left-1/2 ${className}`}
+      onMouseDown={onmousedown}
       style={{
         transform: `translate(calc(-50% + ${posRef.current.x}px), ${posRef.current.y}px)`,
+        ...styles,
       }}
     >
       {children}
