@@ -152,7 +152,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("calculator") + 10 }}
         onmousedown={() => {
           bringToFront("calculator");
-          console.log("clicked");
         }}
       >
         <Calculator
@@ -169,7 +168,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("contact") + 10 }}
         onmousedown={() => {
           bringToFront("contact");
-          console.log("clicked");
         }}
       >
         <Contact
@@ -182,7 +180,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("shoofly") + 10 }}
         onmousedown={() => {
           bringToFront("shoofly");
-          console.log("clicked");
         }}
       >
         <Shoofly
@@ -195,7 +192,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("terminal") + 10 }}
         onmousedown={() => {
           bringToFront("terminal");
-          console.log("clicked");
         }}
       >
         <Terminal
@@ -207,7 +203,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("todo") + 10 }}
         onmousedown={() => {
           bringToFront("todo");
-          console.log("clicked");
         }}
       >
         <ToDo
@@ -220,7 +215,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("files") + 10 }}
         onmousedown={() => {
           bringToFront("files");
-          console.log("clicked");
         }}
       >
         <Explorer
@@ -235,7 +229,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("ayra") + 10 }}
         onmousedown={() => {
           bringToFront("ayra");
-          console.log("clicked");
         }}
       >
         <Ayra
@@ -248,7 +241,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("pics") + 10 }}
         onmousedown={() => {
           bringToFront("pics");
-          console.log("clicked");
         }}
       >
         <Pics
@@ -261,7 +253,6 @@ export default function Home() {
         styles={{ zIndex: openApps.indexOf("tic-tac-toe") + 10 }}
         onmousedown={() => {
           bringToFront("tic-tac-toe");
-          console.log("clicked");
         }}
       >
         <TicTacToe
