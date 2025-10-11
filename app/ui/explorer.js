@@ -58,7 +58,7 @@ export const folderContents = {
     },
     {
       name: "Screenshot",
-      url: "/screenshots/WeemWeb.png",
+      url: "/screenshots/Ayra.png",
       type: "image",
       icon: "/icons/Pics.png",
     },
