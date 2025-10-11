@@ -266,7 +266,12 @@ export default function Home() {
           onClose={toggleTicTacToe}
         />
       </Draggable>
-      <Draggable>
+      <Draggable
+        styles={{ zIndex: openApps.indexOf("textviewer") + 10 }}
+        onmousedown={() => {
+          bringToFront("textviewer");
+        }}
+      >
         {textViewer && (
           <TextViewer
             onClose={() => setTextViewer(null)}
@@ -274,7 +279,12 @@ export default function Home() {
           />
         )}
       </Draggable>
-      <Draggable>
+      <Draggable
+        styles={{ zIndex: openApps.indexOf("imageviewer") + 10 }}
+        onmousedown={() => {
+          bringToFront("imageviewer");
+        }}
+      >
         {imageViewer && (
           <ImageViewer
             onClose={() => setImageViewer(null)}
