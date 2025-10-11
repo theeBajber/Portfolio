@@ -196,15 +196,23 @@ export default function Terminal({ onClose, className }) {
     if (path === "." || path === "./") return cwd;
     if (path === "..") {
       const segments = cwd.split("/");
-      if (segments.length <= 1) return "~/";
-      const newPath = segments.slice(0, -1).join("/") || "~/";
-      return newPath.endsWith("/") ? newPath : newPath + "/";
+      if (segments.length <= 2) return "~/";
+      const newPath = segments.slice(0, -1).join("/");
+      return newPath;
     }
     if (path.startsWith("~/")) return path;
     if (path.startsWith("./")) {
       path = path.slice(2);
     }
     return cwd === "~/" ? `~/${path}` : `${cwd}/${path}`;
+  };
+  const shortenPath = (path) => {
+    if (path === "~/" || path === "~") return "~/";
+    const parts = path.split("/");
+    if (parts.length > 3) {
+      return `.../${parts.slice(-1).join("/")}`;
+    }
+    return path;
   };
   return (
     <div
@@ -237,7 +245,7 @@ export default function Terminal({ onClose, className }) {
         </div>
         <div className="text-sm flex items-center w-fit">
           <span className="mx-1 text-emerald-400">
-            {cwd}
+            {shortenPath(cwd)}
             <span className="text-blue-400 pb-1 ml-1">{"→"}</span>
           </span>
           <input
