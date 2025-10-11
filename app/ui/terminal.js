@@ -94,7 +94,11 @@ export default function Terminal({ onClose, className }) {
     "clear",
     "date",
   ];
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState([
+    "Welcome to Farsh Terminal 💻",
+    "Type 'help' to see available commands.",
+    "------------------------------------------",
+  ]);
   const [input, setInput] = useState("help");
   const [historyIndex, setHistoryIndex] = useState(null);
   const inputRef = useRef(null);
