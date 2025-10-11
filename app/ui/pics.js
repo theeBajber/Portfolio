@@ -5,15 +5,15 @@ import { Search, Grid3X3, List, Heart, Eye, X } from "lucide-react";
 import Header from "./header";
 
 const images = [
-  "/photos/Faraj.jpeg",
-  "/photos/Faraj4.jpeg",
-  "/photos/pic8.jpeg",
-  "/photos/Faraj2.jpeg",
-  "/photos/pic5.jpeg",
-  "/photos/Nvim.png",
-  "/photos/Faraj3.jpeg",
-  "/photos/Faraj5.jpeg",
-  "/photos/night.jpg",
+  "/photos/Faraj cap brown.jpeg",
+  "/photos/aesthetic mountain anime.jpeg",
+  "/photos/Faraj sky beach.jpeg",
+  "/photos/Neovim IDE code.png",
+  "/photos/Faraj nature trees.jpeg",
+  "/photos/Faraj hike nature sky.jpeg",
+  "/photos/night code laptop.jpg",
+  "/photos/aesthetic horse anime.jpeg",
+  "/photos/Faraj sky buildings.jpeg",
 ];
 
 const viewModes = ["masonry", "grid", "list"];

@@ -264,13 +264,13 @@ export const folderContents = {
   Pictures: [
     {
       name: "Me.jpg",
-      url: "/photos/Faraj.jpeg",
+      url: "/photos/Faraj cap brown.jpeg",
       type: "image",
       icon: "/icons/Pics.png",
     },
     {
       name: "My nvim.jpg",
-      url: "/photos/Nvim.png",
+      url: "/photos/Neovim IDE code.png",
       type: "image",
       icon: "/icons/Pics.png",
     },
