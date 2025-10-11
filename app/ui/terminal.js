@@ -4,12 +4,85 @@ import Header from "./header";
 export default function Terminal({ onClose, className }) {
   const [cwd, setcwd] = useState("~/");
   const fileSystem = {
-    "~/": ["about.txt", "projects", "contact.txt"],
-    "~/projects": ["screenworld", "calculator", "clock", "temp-converter"],
+    "~/": ["Desktop", "Documents", "Downloads", "Pictures", "Videos"],
+    "~/Desktop": ["Projects", "Bin", "Skills.txt"],
+    "~/Desktop/Projects": [
+      "Ayra",
+      "Screenworld",
+      "hackathon",
+      "weem",
+      "SpaceX",
+      "Calculator",
+      "ToDo",
+    ],
+    "~/Desktop/Projects/Ayra": [
+      "README.txt",
+      "Github.link",
+      "Live.link",
+      "Screenshot.jpg",
+    ],
+    "~/Desktop/Projects/Screenworld": [
+      "README.txt",
+      "Github.link",
+      "Ayra",
+      "Screenshot.jpg",
+    ],
+    "~/Desktop/Projects/hackathon": [
+      "README.txt",
+      "Github.link",
+      "Live.link",
+      "Screenshot.jpg",
+    ],
+    "~/Desktop/Projects/weem": [
+      "README.txt",
+      "Github.link",
+      "Live.link",
+      "Screenshot.jpg",
+    ],
+    "~/Desktop/Projects/SpaceX": [
+      "README.txt",
+      "Github.link",
+      "Live.link",
+      "Screenshot.jpg",
+    ],
+    "~/Desktop/Projects/Calculator": [
+      "README.txt",
+      "Github.link",
+      "Calculator",
+      "Screenshot.jpg",
+    ],
+    "~/Desktop/Projects/ToDo": [
+      "README.txt",
+      "Github.link",
+      "ToDo",
+      "Screenshot.jpg",
+    ],
+    "~/Desktop/Bin": [],
+    "~/Documents": ["Resume.doc", "About.txt", "Certificates"],
+    "~/Documents/Certificates": ["Nextjs.png", "React.png"],
+    "~/Downloads": [],
+    "~/Pictures": ["Me.jpg", "My nvim.jpg"],
+    "~/Videos": [],
   };
   const mockFiles = {
-    "about.txt": "Hi! I'm Faraj Salim, a passionate dev building cool stuff.",
-    "contact.txt": "Email: faraj@example.com\nGitHub: github.com/bajber",
+    "~/Desktop/Skills.txt":
+      "-Programming: Python, JavaScript, Kotlin, Java, C - Web Development: React, Next.js, Node.js, Express, Tailwind - Databases: MySQL, MongoDB, PostgreSQL - Tools & Platforms: Git, GitHub, Linux (Arch Btw), Neovim",
+    "~/Desktop/Projects/Ayra/README.txt":
+      "AYRA — A portfolio-integrated AI assistant that answers queries to simulate a desktop-like assistant experience, developed using Next.js and gemini api.",
+    "~/Desktop/Projects/Screenworld/README.txt":
+      "ScreenWorld — A sleek landing page designed to promote a digital marketing agency, built using vanilla JS and CSS.",
+    "~/Desktop/Projects/hackathon/README.txt":
+      "Hackathon Portfolio: a collaborative Catppuccin-themed project built during PLP Hackathon July 2025. Includes FAQ, CV download, and responsive design.",
+    "~/Desktop/Projects/weem/README.txt":
+      "WeemWeb is a lightweight website offering technical solutions to non-profits and organizations. Includes application forms, validation, and newsletter integrations. Used: Bootstrap and vanilla JS",
+    "~/Desktop/Projects/SpaceX/README.txt":
+      "SpaceX UI Clone: A responsive landing page built with vanilla JS and CSS",
+    "~/Desktop/Projects/Calculator/README.txt":
+      "A web-based calculator app built with JS, styled using CSS, featuring draggable UI for Noon OS integration.",
+    "~/Desktop/Projects/ToDo/README.txt":
+      "ToDo app built with React, Tailwind CSS, and integrated inside Noon OS as a draggable widget for productivity.",
+    "~/Documents/About.txt":
+      "- Faraj S. Ahmed - BSc Computer Science, Mount Kenya University - I’m a software developer with a focus on web technologies and cybersecurity. - I enjoy solving problems, building useful tools, and exploring new ideas through hackathons and collaborative projects.",
   };
   const validCommands = [
     "help",
@@ -100,11 +173,12 @@ export default function Terminal({ onClose, className }) {
           output = "cat: Missing filename";
           break;
         }
-        const file = argument;
-        if (fileSystem[cwd]?.includes(file) && mockFiles[file]) {
-          output = mockFiles[file];
+        const fullPath = resolvePath(argument);
+
+        if (mockFiles[fullPath] !== undefined) {
+          output = mockFiles[fullPath] || "(empty file)";
         } else {
-          output = `cat: ${file}: No such file`;
+          output = `cat: ${argument}: No such file`;
         }
         break;
       case "clear":
