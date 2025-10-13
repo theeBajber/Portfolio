@@ -14,7 +14,9 @@ export default function Tab() {
     <div className="w-sm h-70 flex flex-col justify-center items-center">
       <Analytics />
       <h1 className={`${bungee.className} text-lg`}>Welcome to Shoofly!</h1>
-      <div>For security reasons, some links might not work.</div>
+      <div className="text-center">
+        For security reasons, some links might not work.
+      </div>
       <div className="flex items-center w-30 justify-evenly h-12">
         <button
           className="cursor-pointer"
