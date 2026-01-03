@@ -13,7 +13,7 @@
     "@vercel/analytics": "^1.5.0",
     "lucide-react": "^0.515.0",
     "motion": "^12.23.22",
-    "next": "15.3.3",
+    "next": "15.3.8",
     "qrcode.react": "^4.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
