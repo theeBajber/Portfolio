@@ -52,8 +52,8 @@ export default function Contact({ className, onClose }) {
             <Link href="https://wa.me/254113199693?text=Hello%2C%20I%20found%20your%20number%20on%20your%20portfolio">
               +254 113 199693
             </Link>
-            <Link href={"mailto:ajrafsalim@gmail.com"}>
-              ajrafsalim@gmail.com
+            <Link href={"mailto:farajsalim@proton.me"}>
+              farajsalim@proton.me
             </Link>
             <Link href={"https://github.com/theeBajber"}>theeBajber</Link>
             <Link href={"https://www.linkedin.com/in/faraj-salim-784395373/"}>
