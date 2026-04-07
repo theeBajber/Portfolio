@@ -168,12 +168,13 @@ export default function Player({ className }) {
 
   return (
     <div
-      className={`text-white bg-white/10 backdrop-blur-xl rounded-xl flex flex-col items-center justify-evenly sm:min-w-[300px] ${className}`}
+      className={`text-white bg-white/10 backdrop-blur-xl rounded-xl flex flex-col items-center justify-evenly sm:min-w-75 ${className}`}
     >
       <div className="w-full flex items-center pl-3">
         <Image
           src={currentTrack.cover}
           alt={currentTrack.title}
+          loading="eager"
           height={68}
           width={68}
           className="rounded-full aspect-square"
@@ -190,7 +191,7 @@ export default function Player({ className }) {
         onClick={handleSeek}
       >
         <div
-          className="h-full rounded bg-gradient-to-l to-[#f0fe93] from-[#174e4f] transition-all duration-300 ease-linear min-w-2"
+          className="h-full rounded bg-linear-to-l to-[#f0fe93] from-[#174e4f] transition-all duration-300 ease-linear min-w-2"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
@@ -199,31 +200,31 @@ export default function Player({ className }) {
         <span>{duration}</span>
       </div>
       <div className="h-fit flex items-center justify-evenly w-full sm:w-[80%] controls">
-        <button onClick={toggleLoop}>
+        <button onClick={toggleLoop} title="Loop">
           {isLoop ? (
             <Repeat1 className="w-6 h-6" />
           ) : (
             <Repeat className="w-6 h-6" />
           )}
         </button>
-        <button onClick={playPrevious}>
+        <button onClick={playPrevious} title="Previous">
           <SkipBackIcon className="w-6 h-6" />
         </button>
         <button onClick={togglePlay}>
           {isPlaying ? (
-            <PauseIcon className="w-6 h-6" />
+            <PauseIcon className="w-6 h-6" title="Pause" />
           ) : (
-            <PlayIcon className="w-6 h-6" />
+            <PlayIcon className="w-6 h-6" title="Play" />
           )}
         </button>
-        <button onClick={playNext}>
+        <button onClick={playNext} title="Next">
           <SkipForwardIcon className="w-6 h-6" />
         </button>
         <button onClick={toggleMute}>
           {isMuted ? (
-            <VolumeX className="w-6 h-6" />
+            <VolumeX className="w-6 h-6" title="Unmute" />
           ) : (
-            <Volume2 className="w-6 h-6" />
+            <Volume2 className="w-6 h-6" title="Mute" />
           )}
         </button>
       </div>

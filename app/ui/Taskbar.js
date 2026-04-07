@@ -38,33 +38,33 @@ export default function Taskbar({
   }, []);
   return (
     <div
-      className={`backdrop-blur-2xl rounded-3xl bg-white/20 flex justify-evenly items-center px-2 ${className} max-w-[420px] sm:min-w-90 w-[95%] aspect-[450/64] z-999 taskbar`}
+      className={`backdrop-blur-2xl rounded-3xl bg-white/20 flex justify-evenly items-center px-2 ${className} max-w-105 sm:min-w-90 w-[95%] aspect-450/64 z-999 taskbar`}
     >
-      <button onClick={onLauncherClick}>
+      <button onClick={onLauncherClick} title="Launcher">
         <img src="/icons/Launchpad.png" />
       </button>
-      <button onClick={onFinderClick}>
+      <button onClick={onFinderClick} title="Files">
         <img src="/icons/Folder1.png" />
       </button>
-      <button onClick={onBrowserClick}>
+      <button onClick={onBrowserClick} title="Shoofly">
         <img src="/icons/Safari.png" />
       </button>
-      <button onClick={onContactClick}>
+      <button onClick={onContactClick} title="Contacts">
         <img src="/icons/Contacts.png" />
       </button>
-      <button onClick={onPicsClick}>
+      <button onClick={onPicsClick} title="Pics">
         <img src="/icons/Pics.png" />
       </button>
-      <button onClick={onTermClick}>
+      <button onClick={onTermClick} title="Farsh">
         <img src="/icons/Terminal.png" />
       </button>
-      <button onClick={onCalcClick}>
+      <button onClick={onCalcClick} title="Calculator">
         <img src="/icons/Calculator.png" />
       </button>
-      <button onClick={onTodoClick}>
+      <button onClick={onTodoClick} title="Notes">
         <img src="/icons/Notes.png" />
       </button>
-      <button onClick={onAyraClick}>
+      <button onClick={onAyraClick} title="Ayra">
         <img src="/icons/messages.png" />
       </button>
     </div>

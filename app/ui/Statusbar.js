@@ -50,7 +50,7 @@ export default function StatusBar({ className }) {
           <Settings className="h-4" />
         </Link>
         <img className="hidden sm:block" src="/search.svg" alt="" />
-        <div className="min-w-[86px] hidden sm:block">{date}</div>
+        <div className="min-w-21.5 hidden sm:block">{date}</div>
         <div className="sm:hidden">{shortDate}</div>
         <div className="hidden sm:block">{time}</div>
         <div className="sm:hidden">{shortTime}</div>
