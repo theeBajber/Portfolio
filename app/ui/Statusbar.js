@@ -37,7 +37,7 @@ export default function StatusBar({ className }) {
         <div className={`${urbanist.className} font-bold text-white`}>
           Faraj Salim
         </div>
-        <Link href="/resume.doc" className="">
+        <Link href="/Faraj_Salim_CV_InfoSec.docx" className="">
           Resume
         </Link>
       </div>

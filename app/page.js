@@ -227,8 +227,14 @@ export default function Home() {
           className={`${finderShown ? "block" : "hidden"}`}
           onClose={toggleFinder}
           openApp={handleLaunchApp}
-          opentxt={(file) => setTextViewer(file)}
-          openimg={(file) => setImageViewer(file)}
+          opentxt={(file) => {
+            bringToFront("textviewer");
+            setTextViewer(file);
+          }}
+          openimg={(file) => {
+            bringToFront("imageviewer");
+            setImageViewer(file);
+          }}
         />
       </Draggable>
       <Draggable
@@ -274,7 +280,10 @@ export default function Home() {
       >
         {textViewer && (
           <TextViewer
-            onClose={() => setTextViewer(null)}
+            onClose={() => {
+              setOpenApps((prev) => prev.filter((a) => a !== "textviewer"));
+              setTextViewer(null);
+            }}
             txt={textViewer.content}
           />
         )}
@@ -287,7 +296,10 @@ export default function Home() {
       >
         {imageViewer && (
           <ImageViewer
-            onClose={() => setImageViewer(null)}
+            onClose={() => {
+              setOpenApps((prev) => prev.filter((a) => a !== "imageviewer"));
+              setImageViewer(null);
+            }}
             src={imageViewer.content}
           />
         )}
